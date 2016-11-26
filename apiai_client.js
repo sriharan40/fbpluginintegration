@@ -19,9 +19,9 @@ function handleApiAiResponse(sender, response, callback) {
 
         console.log("Response is:" + JSON.stringify(response));
         // Load messages
-        var messages = response.result.fulfillment.messages;
-        
-
+        var messages = response.result.fulfillment.messages;        
+		if(messages)
+		{
         // Adding delay between responses
         var i = 0;
         async.whilst(
@@ -36,6 +36,7 @@ function handleApiAiResponse(sender, response, callback) {
                     }, 1000);
                 })
             }, callback);
+		}
     }
 }
 
