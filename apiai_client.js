@@ -51,7 +51,7 @@ function sendResponse(sender, message, callback) {
 
     switch (message.type) {
         case 0: // message text
-            fbClient.sendSplitMessages(sender, "Thanks for your response.");
+            fbClient.sendSplitMessages(sender, message.speech);
             break;
         case 1: // card
             var buttons = [];
