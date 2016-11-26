@@ -17,8 +17,10 @@ function handleApiAiResponse(sender, response, callback) {
     // Do we have a result?
     if (misc.isDefined(response.result)) {
 
+        console.log("Response is:" + JSON.stringify(response));
         // Load messages
         var messages = response.result.fulfillment.messages;
+        
 
         // Adding delay between responses
         var i = 0;
