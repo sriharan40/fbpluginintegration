@@ -62,6 +62,8 @@ function handleApiAiResponse(sender, response, callback) {
 
 function sendResponse(sender, message, callback) {
 
+var message = JSON.parse(message);
+
 console.log("Message:"+message.speech);
 
     switch (message.type) {
