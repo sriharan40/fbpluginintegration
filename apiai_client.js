@@ -62,7 +62,7 @@ function handleApiAiResponse(sender, response, callback) {
 
 function sendResponse(sender, message, callback) {
 
-console.log("Message:"+message);
+console.log("Message:"+message.speech);
 
     switch (message.type) {
         case 0: // message text
