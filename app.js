@@ -103,7 +103,7 @@ app.post('/webhook/', function (req, res) {
         // Load data
         var data = JSONbigint.parse(req.body);
         
-        console.log("Data:"+data);
+        console.log("Data:"+req.body);
         
         for (var i = 0; i < data.entry[0].messaging.length; i++) {
             var event = data.entry[0].messaging[i];
