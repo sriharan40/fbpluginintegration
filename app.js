@@ -59,8 +59,8 @@ function processFacebookEvent(event) {
                             {
                                 name: "generic",
                                 parameters: {
-                                    facebook_user: userInfo.first_name
-				    sender_id :sender
+                                    facebook_user: userInfo.first_name,
+									sender_id :sender
                                 }
                             }
                         ]
