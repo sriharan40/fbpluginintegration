@@ -25,7 +25,7 @@ function handleApiAiResponse(sender, response, callback) {
 
 		if(action == "showOfferOptionsToUser")
 		{
-		var message = '[{"type":0,"speech":"Thanks for your response."}]';
+		var message = '{"type":0,"speech":"Thanks for your response."}';
 		}	
 		
 		if(messages)
@@ -38,7 +38,7 @@ function handleApiAiResponse(sender, response, callback) {
             },
             function (innerCallback) {
                 //sendResponse(sender, messages[i], function () {
-                sendResponse(sender, message, function () {
+                sendResponse(sender, JSON.stringify(message), function () {
                     setTimeout(function () {
                         i++;
                         innerCallback();
