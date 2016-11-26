@@ -59,6 +59,8 @@ function handleApiAiResponse(sender, response, callback) {
 
 function sendResponse(sender, message, callback) {
 
+console.log("Message:"+message);
+
     switch (message.type) {
         case 0: // message text
             fbClient.sendSplitMessages(sender, message.speech);
