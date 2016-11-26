@@ -62,8 +62,6 @@ function handleApiAiResponse(sender, response, callback) {
 
 function sendResponse(sender, message, callback) {
 
-//var message = JSON.parse(message);
-
     switch (message.type) {
         case 0: // message text
             fbClient.sendSplitMessages(sender, message.speech);
