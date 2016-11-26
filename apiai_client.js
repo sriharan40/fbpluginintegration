@@ -27,9 +27,9 @@ function handleApiAiResponse(sender, response, callback) {
 		{
 		var messages = [{
 			"type":1,
-			"title":"Youtube offers list.",
-			"subtitle":"Offers",
-			"imageUrl":"http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F05%2Fnexus2cee_YouTube_thumb1.png&w=150&h=150&zc=3",
+			"title":"Top Pick Offers today.",
+			"subtitle":"Vamos",
+			"imageUrl":"http://markraysolar.files.wordpress.com/2011/12/globe.png",
 			"buttons":[
               {
                 "postback":"https://goo.gl/sIZCze",
