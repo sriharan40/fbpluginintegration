@@ -41,7 +41,7 @@ function handleApiAiResponse(sender, response, callback) {
             },
             function (innerCallback) {
                 //sendResponse(sender, messages[i], function () {
-                sendResponse(sender, JSON.stringify(message), function () {
+                sendResponse(sender, message, function () {
                     setTimeout(function () {
                         i++;
                         innerCallback();
@@ -62,9 +62,7 @@ function handleApiAiResponse(sender, response, callback) {
 
 function sendResponse(sender, message, callback) {
 
-var message = JSON.parse(message);
-
-console.log("Message:"+message.speech);
+//var message = JSON.parse(message);
 
     switch (message.type) {
         case 0: // message text
