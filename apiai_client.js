@@ -29,7 +29,7 @@ function handleApiAiResponse(sender, response, callback) {
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
-			"imageUrl":"http://markraysolar.files.wordpress.com/2011/12/globe.png",
+			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
 			"buttons":[
               {
                 "postback":"https://goo.gl/sIZCze",
