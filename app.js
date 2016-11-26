@@ -59,7 +59,7 @@ function processFacebookEvent(event) {
                             {
                                 name: "generic",
                                 parameters: {
-                                    facebook_user: userInfo.first_name
+                                    facebook_user: userInfo.first_name,
                                 }
                             }
                         ]
@@ -67,7 +67,6 @@ function processFacebookEvent(event) {
 
                 // Handle response
                 apiaiRequest.on('response', response => {
-					console.log("Response:"+response);
                     apiaiClient.handleApiAiResponse(sender, response);
                 });
                 apiaiRequest.on('error', error => console.error(error));
