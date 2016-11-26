@@ -26,9 +26,17 @@ function handleApiAiResponse(sender, response, callback) {
 		if(action == "showOfferOptionsToUser")
 		{
 		var messages = [{
+			"type":1,
+			"speech":"Offers List."
+			}]
+		}
+		
+		if(action == "UserAcceptance")
+		{
+		var messages = [{
 			"type":0,
 			"speech":"Thanks for your response."
-			}]
+			}]			
 		}
 		
 		if(messages)
