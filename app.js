@@ -19,7 +19,7 @@ const sessionIds = new Map();
 
 function processEvent(event) {
     var sender = event.sender.id.toString();
-    console.log("Sender is : " + sender");
+    console.log("Sender is : " + sender);
 
     if ((event.message && event.message.text) || (event.postback && event.postback.payload)) {
         var text = event.message ? event.message.text : event.postback.payload;
