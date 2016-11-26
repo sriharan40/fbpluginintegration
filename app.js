@@ -7,6 +7,8 @@ const uuid = require('node-uuid');
 const request = require('request');
 const JSONbig = require('json-bigint');
 const async = require('async');
+const fbClient = require('./fb_client');
+const apiaiClient = require('./apiai_client');
 
 const REST_PORT = (process.env.PORT || 5000);
 const APIAI_ACCESS_TOKEN = process.env.APIAI_ACCESS_TOKEN;
@@ -243,4 +245,7 @@ app.listen(REST_PORT, () => {
     console.log('Rest service ready on port ' + REST_PORT);
 });
 
-doSubscribeRequest();
+//doSubscribeRequest();
+   //let fb client subscribe it
+    // Subscribe
+fbClient.subscribeRequest();
