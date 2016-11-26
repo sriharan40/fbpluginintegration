@@ -28,6 +28,8 @@ function processFacebookEvent(event) {
 
     // Get sender id
     var sender = event.sender.id.toString();
+    
+    console.log("sender:"+sender);
 
     var text = "";
     if (event.message && event.message.text) {
@@ -102,6 +104,8 @@ app.post('/webhook/', function (req, res) {
     try {
         // Load data
         var data = JSONbigint.parse(req.body);
+        
+        console.log("Data:"+data);
 
         for (var i = 0; i < data.entry[0].messaging.length; i++) {
             var event = data.entry[0].messaging[i];
