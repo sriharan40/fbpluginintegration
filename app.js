@@ -67,7 +67,7 @@ function processFacebookEvent(event) {
 
                 // Handle response
                 apiaiRequest.on('response', response => {
-					colsole.log("Response:"+response);
+					console.log("Response:"+response);
                     apiaiClient.handleApiAiResponse(sender, response);
                 });
                 apiaiRequest.on('error', error => console.error(error));
