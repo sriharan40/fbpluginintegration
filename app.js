@@ -29,8 +29,6 @@ function processFacebookEvent(event) {
     // Get sender id
     var sender = event.sender.id.toString();
     
-    console.log("sender:"+sender);
-
     var text = "";
     if (event.message && event.message.text) {
         text = event.message.text;
@@ -69,7 +67,8 @@ function processFacebookEvent(event) {
 
                 // Handle response
                 apiaiRequest.on('response', response => {
-                    //apiaiClient.handleApiAiResponse(sender, response);
+					colsole.log("Response:"+response);
+                    apiaiClient.handleApiAiResponse(sender, response);
                 });
                 apiaiRequest.on('error', error => console.error(error));
                 apiaiRequest.end();
@@ -105,8 +104,6 @@ app.post('/webhook/', function (req, res) {
         // Load data
         var data = JSONbigint.parse(req.body);
         
-        console.log("Data:"+data);
-
         for (var i = 0; i < data.entry[0].messaging.length; i++) {
             var event = data.entry[0].messaging[i];
             processFacebookEvent(event);
