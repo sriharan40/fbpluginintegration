@@ -19,7 +19,15 @@ function handleApiAiResponse(sender, response, callback) {
 
         console.log("Response is:" + JSON.stringify(response));
         // Load messages
-        var messages = response.result.fulfillment.messages;        
+        var messages = response.result.fulfillment.messages;    
+		
+		var action = response.result.action;
+
+		if(action == "showOfferOptionsToUser")
+		{
+		var message = '[{"type":0,"speech":"Thanks for your response."}]';
+		}	
+		
 		if(messages)
 		{
         // Adding delay between responses
@@ -29,7 +37,8 @@ function handleApiAiResponse(sender, response, callback) {
                 return i <= messages.length - 1;
             },
             function (innerCallback) {
-                sendResponse(sender, messages[i], function () {
+                //sendResponse(sender, messages[i], function () {
+                sendResponse(sender, message, function () {
                     setTimeout(function () {
                         i++;
                         innerCallback();
@@ -47,6 +56,7 @@ function handleApiAiResponse(sender, response, callback) {
  * @param message Message to send to API.AI.
  * @param callback Callback function.
  */
+
 function sendResponse(sender, message, callback) {
 
     switch (message.type) {
