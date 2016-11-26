@@ -1,23 +1,24 @@
 {
-  "name": "api-ai-facebook",
+  "name": "api-ai-fb-webhook",
   "version": "1.0.0",
-  "description": "API.AI Facebook Bot",
+  "description": "API.AI-Facebook Integration Webhook",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "author": "Danil Skachkov <danil.skachkov@speaktoit.com> (https://api.ai)",
+  "author": "Dimi Balaouras <dimi@helvia.io>",
   "license": "ISC",
   "dependencies": {
-    "apiai": "2.0.5",
-    "async": "^2.0.0",
-    "body-parser": "^1.15.2",
-    "express": "^4.13.3",
-    "html-entities": "^1.2.0",
+    "apiai": "^3.0.2 ",
+    "async": "^2.0.x",
+    "body-parser": "~1.15.1",
+    "express": "~4.13.4",
     "json-bigint": "^0.2.0",
-    "node-uuid": "^1.4.7",
-    "request": "^2.73.0"
+    "uuid": "^3.0.0",
+    "request": "^2.78.0",
+    "mocha": "^3.1.2",
+    "chai": "^3.5.0"
   },
   "repository": {
     "type": "git",
