@@ -28,8 +28,8 @@ function handleApiAiResponse(sender, response, callback) {
 		var messages = [{
 			"type":0,
 			"speech":"Thanks for your response."
-			}
-		}]	
+			}]
+		}
 		
 		if(messages)
 		{
