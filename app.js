@@ -31,6 +31,7 @@ function processFacebookEvent(event) {
     
 	var ref = getvalue(event,"ref");
 	
+	console.log("Ref_exist:"+ref);	
 	if(ref)
 	{
 	console.log("Ref_exist:"+ref);
