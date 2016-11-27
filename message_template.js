@@ -12,6 +12,7 @@ var messages = "Text";
 	
 if(action == "showOfferOptionsToUser")
 {
+
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: process.env.db_user,
@@ -62,9 +63,8 @@ console.log("Message:"+JSON.stringify(messages));
 return messages;
 
 });
-						
 
-}		
+}								
 		
 if(action == "UserAcceptance")
 {
@@ -72,6 +72,7 @@ var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
 	}]			
+return messages;	
 }
 
 if(action == "surprisetalk")
@@ -80,6 +81,7 @@ var messages = [{
 	"type":0,
 	"speech":"Welcome to bot chat."
 	}]
+return messages;	
 }
 		
 }	
