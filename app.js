@@ -146,11 +146,12 @@ function processFacebookEvent(event) {
 	var messages = messageformat(ref);
 	
 if(messages)
-{
-console.log("message:"+JSON.stringify(messages));
-		
+{		
 // Adding delay between responses
 var i = 0;
+
+		console.log("message:"+JSON.stringify(messages[i]));
+
 		apiaiClient.sendResponse(sender, messages[i], function () {
 		console.log("message:"+JSON.stringify(messages));	
 		});
