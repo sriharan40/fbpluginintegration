@@ -33,13 +33,13 @@ function processFacebookEvent(event) {
 
 	console.log("Sender:"+sender);
     
-	var ref = event.delivery.watermark;
+	var ref = event.sender.delivery.watermark;
 	if(ref == undefined || ref == "")
 	{
 	console.log("Ref:"+ref);		
 	}
 	else{
-	var ref = event.referral.ref;		
+	var ref = event.sender.referral.ref;		
 	}
 
 	if(ref != undefined || ref != "")
