@@ -12,6 +12,7 @@
   "dependencies": {
     "apiai": "^3.0.2 ",
     "async": "^2.0.x",
+     "mysql": "^2.11.1",          
     "body-parser": "~1.15.1",
     "express": "~4.13.4",
     "json-bigint": "^0.2.0",
