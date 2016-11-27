@@ -43,9 +43,9 @@ connection.query('select * from offers', function(err, rows, fields) {
     if (err) throw err; 
     for (var i in rows) {
          arr1.push({
-            "type":"web_url",
-            "url":rows[i].description,
-            "title":rows[i].offer_name
+            //"type":"web_url",
+            "postback":rows[i].description,
+            "text":rows[i].offer_name
           })
     }			
 		var messages = [{
@@ -53,8 +53,7 @@ connection.query('select * from offers', function(err, rows, fields) {
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
-			"buttons": [{"type":"web_url","url":"https://goo.gl/6eFDBP","title":"Facebook 1 hr"},{"type":"web_url","url":"https://goo.gl/sIZCze","title":"Youtube 1 day"},{"type":"web_url","url":"https://goo.gl/G8x0Rq","title":"Clash of Clans"}]
-			//arr1
+			"buttons": arr1
 			}]
 
 console.log("Message:"+JSON.stringify(messages));
