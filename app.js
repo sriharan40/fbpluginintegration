@@ -63,6 +63,7 @@ function processFacebookEvent(event) {
         text = event.postback.payload;
     }
 
+    console.log("Text is:" + text);
     if (text) {
 
         // Store a new session for this sender
