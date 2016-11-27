@@ -1,7 +1,7 @@
 /* jshint node: true */
 'use strict';
-//var mysql = require('mysql');
-var mysql = require('mysql-libmysqlclient') ;
+var mysql = require('mysql');
+//var mysql = require('mysql-libmysqlclient') ;
 const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
@@ -9,7 +9,6 @@ const async = require('async');
 function messageformat(action)
 {
 var arr1 = [];
-var messages = "Text";
 	
 if(action == "showOfferOptionsToUser")
 {
@@ -25,7 +24,7 @@ var db_config = {
 var connection;
 
     console.log('1. connecting to db:');
-    connection = mysql.createConnectionSync(db_config); // Recreate the connection, since
+    connection = mysql.createConnection(db_config); // Recreate the connection, since
 													// the old one cannot be reused.
 
     connection.connect(function(err) {              	// The server is either down
@@ -42,7 +41,7 @@ var connection;
         }
     });
 
-connection.querySync('select * from offers', function(err, rows, fields) {
+connection.query('select * from offers', function(err, rows, fields) {
     if (err) throw err; 
     for (var i in rows) {
          arr1.push({
@@ -51,6 +50,8 @@ connection.querySync('select * from offers', function(err, rows, fields) {
           })
     }
 
+});
+	
 	var messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
@@ -62,8 +63,6 @@ connection.querySync('select * from offers', function(err, rows, fields) {
 console.log("Message:"+JSON.stringify(messages12));
 
 return messages12;
-
-});
 
 }								
 		
