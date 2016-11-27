@@ -1,6 +1,7 @@
 /* jshint node: true */
 'use strict';
-var mysql = require('mysql');
+//var mysql = require('mysql');
+var mysql = require('mysql-libmysqlclient') ;
 const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
