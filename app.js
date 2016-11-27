@@ -24,13 +24,80 @@ const sessionIds = new Map();
  *
  * @param event
  */
+ 
+function jsonvalue(json,string)
+{	
+console.log("Json:"+json);
+for (var name in json) {
+if(name == string)
+{
+var ref = json[name];
+}
+if(typeof json[name] == 'object')
+{
+for (var name1 in json[name]) {
+if(name1 == string)
+{	
+   var ref = json[name][name1];
+}   
+if(typeof json[name][name1] == 'object')
+{
+for (var name2 in json[name][name1]) {
+if(name2 == string)
+{	
+   var ref = json[name][name1][name2];
+}   
+if(typeof json[name][name1][name2] == 'object')
+{
+for (var name3 in json[name][name1][name2]) {
+if(name3 == string)
+{
+   var ref = json[name][name1][name2][name3];
+}   
+if(typeof json[name][name1][name2][name3] == 'object')
+{
+for (var name4 in json[name][name1][name2][name3]) {
+if(name4 == string)
+{
+   var ref = json[name][name1][name2][name3][name4];
+}
+if(typeof json[name][name1][name2][name3][name4] == 'object')
+{
+for (var name5 in json[name][name1][name2][name3][name4]) {
+if(name5 == string)
+{
+	var ref = json[name][name1][name2][name3][name4][name5];
+}
+if(typeof json[name][name1][name2][name3][name4][name5] == 'object')
+{
+for (var name6 in json[name][name1][name2][name3][name4][name5]) {
+if(name6 == string)
+{
+   var ref = json[name][name1][name2][name3][name4][name5][name6];
+}
+   }   
+ }
+ }   
+ }
+ }   
+ }
+ }   
+ }
+ }   
+ }
+ }   
+   }	
+ }	
+return ref; 
+}
+ 
 function processFacebookEvent(event) {
 
     // Get sender id
     var sender = event.sender.id.toString();
     
 
-	console.log(fbClient.jsonvalue(event,'ref'));
+	console.log(jsonvalue(event,'ref'));
 	
 	if(ref)
 	{
