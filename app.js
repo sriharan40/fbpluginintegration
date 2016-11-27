@@ -29,13 +29,14 @@ function processFacebookEvent(event) {
     // Get sender id
     var sender = event.sender.id.toString();
     
-	try
+	var ref = getvalue(event,"ref");
+	
+	if(ref)
 	{
-	var ref = event.referral.ref;		
 	console.log("Ref_exist:"+ref);
 	console.log("Graph api code");
 	}	
-	catch(e)
+	else
 	{
     var text = "";
     if (event.message && event.message.text) {
