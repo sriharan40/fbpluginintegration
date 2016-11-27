@@ -5,7 +5,7 @@ const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
 
-function messageformat(action,callback)
+function messageformat(action)
 {	
 	if(action == "showOfferOptionsToUser")
 		{
@@ -43,5 +43,10 @@ function messageformat(action,callback)
 			}]			
 		}
 		
-        callback(messages);
-}		
+return messages;
+}	
+
+// Export module functions
+module.exports = {
+    messageformat: messageformat,
+};	
