@@ -39,6 +39,8 @@ if(ref)
 {
 var messages = messag.messageformat(ref);
 var callback = "";
+
+console.log("Message:"+messages[0]);
 	
 if(messages)
 {		
