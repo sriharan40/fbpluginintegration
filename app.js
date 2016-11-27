@@ -104,6 +104,8 @@ function processFacebookEvent(event) {
 	{
 	var messages = messag.messageformat(ref);
 
+	console.log("message:"+messages);
+	
 if(messages)
 {
 // Adding delay between responses
