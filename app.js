@@ -152,9 +152,9 @@ var i = 0;
 
 		console.log("message:"+JSON.stringify(messages[i]));
 
-		apiaiClient.sendResponse(sender, messages[i], function () {
+		console.log(apiaiClient.sendResponse(sender, messages[i]));
+		
 		console.log("message:"+JSON.stringify(messages));	
-		});
 }		
 	
     //fbClient.sendSplitMessages(sender, ref);
