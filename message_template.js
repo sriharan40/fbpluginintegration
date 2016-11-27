@@ -50,7 +50,7 @@ connection.query('select * from offers', function(err, rows, fields) {
           })
     }
 
-	var messages = [{
+	var messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
@@ -58,9 +58,9 @@ connection.query('select * from offers', function(err, rows, fields) {
 			"buttons":arr1
 			}]
 
-console.log("Message:"+JSON.stringify(messages));
+console.log("Message:"+JSON.stringify(messages12));
 
-return messages;
+return messages12;
 
 });
 
