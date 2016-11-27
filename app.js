@@ -39,7 +39,7 @@ function processFacebookEvent(event) {
 	//var ref = event.referral.ref.toString();		
 	var ref = event.delivery;
 	
-	console.log("Ref_new:"+ref);		
+	console.log("Ref_new:"+JSON.stringify(ref));		
 
 	if(ref != undefined || ref != "")
 	{
