@@ -32,11 +32,7 @@ function processFacebookEvent(event) {
     var sender = event.sender.id.toString();
 
 	console.log("Sender:"+sender);
-
-	console.log("Ref_new:"+ref);		
     
-	//var ref = event.delivery.watermark.toString();
-	//var ref = event.referral.ref.toString();		
 	var ref = event.delivery.watermark;
 	
 	console.log("Ref_new:"+JSON.stringify(ref));		
@@ -63,7 +59,6 @@ function processFacebookEvent(event) {
         text = event.postback.payload;
     }
 
-    console.log("Text is:" + text);
     if (text) {
 
         // Store a new session for this sender
