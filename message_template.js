@@ -46,6 +46,7 @@ connection.query('select * from offers', function(err, rows, fields) {
             "text":rows[i].offer_name
           })
     }
+});			
 	
 if(action == "showOfferOptionsToUser")
 {
@@ -77,8 +78,6 @@ var messages = [{
 }
 
 return messages;
-
-});			
 		
 }	
 
