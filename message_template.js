@@ -55,6 +55,9 @@ connection.query('select * from offers', function(err, rows, fields) {
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
 			"buttons": arr1
 			}]
+
+console.log("Message:"+JSON.stringify(messages));
+
 return messages;
 
 console.log("Message:"+JSON.stringify(messages));
