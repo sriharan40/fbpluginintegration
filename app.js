@@ -27,6 +27,8 @@ const sessionIds = new Map();
 function processFacebookEvent(event) {
 
     // Get sender id
+	console.log("Event:"+event);
+
     var sender = event.sender.id.toString();
     
 	var ref = event.delivery.watermark;
