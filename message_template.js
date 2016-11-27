@@ -43,17 +43,18 @@ connection.query('select * from offers', function(err, rows, fields) {
     if (err) throw err; 
     for (var i in rows) {
          arr1.push({
-            //"type":"web_url",
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
     }			
-		var messages = [{
+		});
+
+	var messages = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
-			"buttons": [
+			"buttons":[
 			{
 				"postback":"https://goo.gl/6eFDBP",
 				"text":"Facebook 1 hr"
@@ -63,16 +64,8 @@ connection.query('select * from offers', function(err, rows, fields) {
 				"text":"Youtube 1 day"
 			}
 			]
-			//arr1
 			}]
 
-console.log("Message:"+JSON.stringify(messages));
-
-return messages;
-
-console.log("Message:"+JSON.stringify(messages));
-
-		});
 }		
 		
 		if(action == "UserAcceptance")
@@ -81,7 +74,6 @@ console.log("Message:"+JSON.stringify(messages));
 			"type":0,
 			"speech":"Thanks for your response."
 			}]			
-return messages;			
 		}
 
 		if(action == "surprisetalk")
@@ -89,9 +81,10 @@ return messages;
 		var messages = [{
 			"type":0,
 			"speech":"Welcome to bot chat."
-			}]	
-return messages;			
+			}]
 		}
+
+return messages;
 		
 }	
 
