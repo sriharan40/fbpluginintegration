@@ -9,9 +9,9 @@ const request = require('request');
 const JSONbigint = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
+const messag = require('./message_template');
 const misc = require('./misc');
 const async = require('async');
-const messag = require('./message_template');
 
 const REST_PORT = (process.env.PORT || 5000);
 const APIAI_ACCESS_TOKEN = process.env.APIAI_ACCESS_TOKEN;
@@ -38,6 +38,7 @@ var ref = fbClient.jsonvalue(event,'ref');
 if(ref)
 {
 var messages = messag.messageformat(ref);
+var callback = "";
 	
 if(messages)
 {		
