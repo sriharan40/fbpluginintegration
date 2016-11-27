@@ -30,6 +30,8 @@ function processFacebookEvent(event) {
 	console.log("Event:"+event);
 
     var sender = event.sender.id.toString();
+
+	console.log("Sender:"+sender);
     
 	var ref = event.delivery.watermark;
 	if(ref == undefined || ref == "")
