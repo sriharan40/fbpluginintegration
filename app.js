@@ -9,6 +9,8 @@ const request = require('request');
 const JSONbigint = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
+const misc = require('./misc');
+const async = require('async');
 
 const REST_PORT = (process.env.PORT || 5000);
 const APIAI_ACCESS_TOKEN = process.env.APIAI_ACCESS_TOKEN;
@@ -96,7 +98,7 @@ function processFacebookEvent(event) {
     var sender = event.sender.id.toString();
     
 
-	var ref = fbClient.jsonvalue(event,'ref');
+	var ref = jsonvalue(event,'ref');
 	
 	if(ref)
 	{
