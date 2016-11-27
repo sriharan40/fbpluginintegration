@@ -12,7 +12,6 @@ const async = require('async');
  
 function jsonvalue(json,string)
 {	
-console.log("Json:"+json);
 for (var name in json) {
 if(name == string)
 {
@@ -71,7 +70,7 @@ if(name6 == string)
  }   
  }
  }   
-   }	
+ }	
  }	
 return ref; 
 } 
@@ -260,5 +259,6 @@ module.exports = {
     sendTextMessage: sendTextMessage,
     sendSplitMessages: sendSplitTextMessages,
     sendImageMessage: sendImageMessage,
-    userInfoRequest: userInfoRequest
+    userInfoRequest: userInfoRequest,
+	jsonvalue: jsonvalue
 };
