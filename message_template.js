@@ -6,8 +6,6 @@ const misc = require('./misc');
 const async = require('async');
 
 function messageformat(action)
-{	
-if(action == "showOfferOptionsToUser")
 {
 var arr1 = [];
 
@@ -46,8 +44,10 @@ connection.query('select * from offers', function(err, rows, fields) {
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-    }			
-
+    }
+	
+if(action == "showOfferOptionsToUser")
+{
 	var messages = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
@@ -57,28 +57,29 @@ connection.query('select * from offers', function(err, rows, fields) {
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 
-});			
 console.log("Message:"+JSON.stringify(messages));			
 
 }		
 		
-		if(action == "UserAcceptance")
-		{
-		var messages = [{
-			"type":0,
-			"speech":"Thanks for your response."
-			}]			
-		}
+if(action == "UserAcceptance")
+{
+var messages = [{
+	"type":0,
+	"speech":"Thanks for your response."
+	}]			
+}
 
-		if(action == "surprisetalk")
-		{
-		var messages = [{
-			"type":0,
-			"speech":"Welcome to bot chat."
-			}]
-		}
+if(action == "surprisetalk")
+{
+var messages = [{
+	"type":0,
+	"speech":"Welcome to bot chat."
+	}]
+}
 
 return messages;
+
+});			
 		
 }	
 
