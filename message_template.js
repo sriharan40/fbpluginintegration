@@ -57,9 +57,13 @@ connection.query('select * from offers', function(err, rows, fields) {
 			"buttons":arr1
 			}]
 
+console.log("Message:"+JSON.stringify(messages));
+
+return messages;
+
 });
 						
-console.log("Message:"+JSON.stringify(messages));
+
 }		
 		
 if(action == "UserAcceptance")
@@ -77,8 +81,6 @@ var messages = [{
 	"speech":"Welcome to bot chat."
 	}]
 }
-
-return messages;
 		
 }	
 
