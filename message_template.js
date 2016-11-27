@@ -53,7 +53,8 @@ connection.query('select * from offers', function(err, rows, fields) {
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
-			"buttons": arr1
+			"buttons": [{"type":"web_url","url":"https://goo.gl/6eFDBP","title":"Facebook 1 hr"},{"type":"web_url","url":"https://goo.gl/sIZCze","title":"Youtube 1 day"},{"type":"web_url","url":"https://goo.gl/G8x0Rq","title":"Clash of Clans"}]
+			//arr1
 			}]
 
 console.log("Message:"+JSON.stringify(messages));
