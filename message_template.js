@@ -56,6 +56,9 @@ connection.query('select * from offers', function(err, rows, fields) {
 			"buttons": arr1
 			}]
 return messages;
+
+console.log("Message:"+JSON.stringify(messages));
+
 		});
 }		
 		
@@ -82,4 +85,4 @@ return messages;
 // Export module functions
 module.exports = {
     messageformat: messageformat,
-};
+};	
