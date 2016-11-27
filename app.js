@@ -11,6 +11,7 @@ const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const misc = require('./misc');
 const async = require('async');
+const messag = require('./message');
 
 const REST_PORT = (process.env.PORT || 5000);
 const APIAI_ACCESS_TOKEN = process.env.APIAI_ACCESS_TOKEN;
@@ -95,14 +96,34 @@ return ref;
 function processFacebookEvent(event) {
 
     // Get sender id
-    var sender = event.sender.id.toString();
-    
+    var sender = event.sender.id.toString();    
 
 	var ref = jsonvalue(event,'ref');
 	
 	if(ref)
 	{
-    fbClient.sendSplitMessages(sender, ref);
+	var messages = messag.messageformat(ref);
+
+if(messages)
+{
+// Adding delay between responses
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages.length - 1;
+	},
+	function (innerCallback) {
+		apiaiClient.sendResponse(sender, messages[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	});
+}		
+	
+    //fbClient.sendSplitMessages(sender, ref);
+	
 	}	
 	else
 	{
