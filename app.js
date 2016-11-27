@@ -27,7 +27,6 @@ const sessionIds = new Map();
  
 function jsonvalue(json,string)
 {	
-console.log("Json:"+json);
 for (var name in json) {
 if(name == string)
 {
@@ -97,7 +96,7 @@ function processFacebookEvent(event) {
     var sender = event.sender.id.toString();
     
 
-	console.log(jsonvalue(event,'ref'));
+	var ref = jsonvalue(event,'ref');
 	
 	if(ref)
 	{
