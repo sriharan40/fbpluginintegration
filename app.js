@@ -47,7 +47,7 @@ function processFacebookEvent(event) {
 	console.log("Graph api code");
 	}
 	
-	catch
+	catch(e)
 	{
     var text = "";
     if (event.message && event.message.text) {
