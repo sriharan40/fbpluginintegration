@@ -29,6 +29,21 @@ function processFacebookEvent(event) {
     // Get sender id
     var sender = event.sender.id.toString();
     
+	var ref = event.delivery.watermark;
+	if(ref == undefined || ref == "")
+	{
+	console.log("Ref:"+ref);		
+	}
+	else{
+	var ref = event.referral.ref;		
+	}
+
+	if(ref != undefined || ref != "")
+	{
+	console.log("Graph api code");				
+	}
+	else
+	{
     var text = "";
     if (event.message && event.message.text) {
         text = event.message.text;
@@ -76,6 +91,8 @@ function processFacebookEvent(event) {
             console.error(err);
         });
     }
+
+	}
 }
 
 
@@ -104,7 +121,7 @@ app.post('/webhook/', function (req, res) {
         var data = JSONbigint.parse(req.body);
         
         console.log("Data:"+req.body);
-        
+			
         for (var i = 0; i < data.entry[0].messaging.length; i++) {
             var event = data.entry[0].messaging[i];
             processFacebookEvent(event);
