@@ -12,6 +12,7 @@ const async = require('async');
  
 function getvalue(json,string)
 {	
+console.log("Json:"+json);
 for (var name in json) {
 if(name == string)
 {
