@@ -98,7 +98,7 @@ function processFacebookEvent(event) {
     var sender = event.sender.id.toString();
     
 
-	var ref = jsonvalue(event,'ref');
+	var ref = fbClient.jsonvalue(event,'ref');
 	
 	if(ref)
 	{
