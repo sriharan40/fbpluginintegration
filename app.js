@@ -29,11 +29,9 @@ function processFacebookEvent(event) {
     // Get sender id
     var sender = event.sender.id.toString();
     
-	console.log("Ref_exist:"+sender);	
 
-	console.log(fbClient.getjsonvalue(event,'ref'));
+	console.log(fbClient.jsonvalue(event,'ref'));
 	
-	console.log("Ref_exist:"+ref);	
 	if(ref)
 	{
 	console.log("Ref_exist:"+ref);
