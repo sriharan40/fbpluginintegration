@@ -28,7 +28,7 @@ function messageformat(action)
 			}]			
 		}
 
-		if(action == "Surprisetalk")
+		if(action == "surprisetalk")
 		{
 		var messages = [{
 			"type":0,
@@ -37,5 +37,4 @@ function messageformat(action)
 		}
 		
 return messages;
-
 }		
