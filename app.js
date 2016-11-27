@@ -145,7 +145,7 @@ function processFacebookEvent(event) {
 	{
 	var messages = messageformat(ref);
 
-	console.log("message:"+messages);
+	console.log("message:"+JSON.stringify(messages));
 	
 if(messages)
 {
