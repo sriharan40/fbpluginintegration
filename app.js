@@ -27,13 +27,16 @@ const sessionIds = new Map();
 function processFacebookEvent(event) {
 
     // Get sender id
-	console.log("Event:"+event);
+	console.log("Event:"+JSON.stringify(event));
 
     var sender = event.sender.id.toString();
 
 	console.log("Sender:"+sender);
     
 	var ref = event.delivery.watermark.toString();
+	
+	console.log("Ref_new:"+ref);		
+
 	if(ref != undefined || ref != "")
 	{
 	console.log("Ref_new:"+ref);		
