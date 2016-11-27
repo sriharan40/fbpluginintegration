@@ -10,7 +10,7 @@ const async = require('async');
  * Sends a text message ensuring that long messages are split
  */
  
-function getjsonvalue(json,string)
+function jsonvalue(json,string)
 {	
 console.log("Json:"+json);
 for (var name in json) {
