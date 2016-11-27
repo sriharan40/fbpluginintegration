@@ -32,8 +32,11 @@ function processFacebookEvent(event) {
     var sender = event.sender.id.toString();
 
 	console.log("Sender:"+sender);
+
+	console.log("Ref_new:"+ref);		
     
 	var ref = event.delivery.watermark.toString();
+	var ref = event.referral.ref.toString();		
 	
 	console.log("Ref_new:"+ref);		
 
