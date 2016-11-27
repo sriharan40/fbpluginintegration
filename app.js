@@ -144,25 +144,14 @@ function processFacebookEvent(event) {
 	if(ref)
 	{
 	var messages = messageformat(ref);
-
-	console.log("message:"+JSON.stringify(messages));
 	
 if(messages)
 {
 // Adding delay between responses
 var i = 0;
-async.whilst(
-	function () {
-		return i <= messages.length - 1;
-	},
-	function (innerCallback) {
 		apiaiClient.sendResponse(sender, messages[i], function () {
-			setTimeout(function () {
-				i++;
-				innerCallback();
-			}, 1000);
-		})
-	});
+		console.log("message:"+JSON.stringify(messages));	
+		});
 }		
 	
     //fbClient.sendSplitMessages(sender, ref);
