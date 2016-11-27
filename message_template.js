@@ -6,7 +6,11 @@ const misc = require('./misc');
 const async = require('async');
 
 function messageformat(action)
+{	
+if(action == "showOfferOptionsToUser")
 {
+var arr1 = [];
+
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: process.env.db_user,
@@ -34,10 +38,6 @@ var connection;
             throw err;                                  // server variable configures this)
         }
     });
-	
-if(action == "showOfferOptionsToUser")
-{
-var arr1 = [];
 
 connection.query('select * from offers', function(err, rows, fields) {
     if (err) throw err; 
@@ -55,6 +55,8 @@ connection.query('select * from offers', function(err, rows, fields) {
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
 			"buttons": arr1
 			}]
+
+console.log("Message:"+JSON.stringify(messages));
 			
 		});
 }		
