@@ -24,7 +24,7 @@ var db_config = {
 var connection;
 
     console.log('1. connecting to db:');
-    connection = mysql.createConnection(db_config); // Recreate the connection, since
+    connection = mysql.createConnectionSync(db_config); // Recreate the connection, since
 													// the old one cannot be reused.
 
     connection.connect(function(err) {              	// The server is either down
@@ -41,7 +41,7 @@ var connection;
         }
     });
 
-connection.query('select * from offers', function(err, rows, fields) {
+connection.querySync('select * from offers', function(err, rows, fields) {
     if (err) throw err; 
     for (var i in rows) {
          arr1.push({
