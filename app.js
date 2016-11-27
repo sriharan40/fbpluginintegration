@@ -29,7 +29,7 @@ function processFacebookEvent(event) {
     // Get sender id
     var sender = event.sender.id.toString();
     
-	var ref = fbClient.getvalue(event,"ref");
+	var ref = fbClient.getvalue(event,'ref');
 	
 	console.log("Ref_exist:"+ref);	
 	if(ref)
