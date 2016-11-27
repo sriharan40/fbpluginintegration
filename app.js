@@ -27,12 +27,10 @@ const sessionIds = new Map();
 function processFacebookEvent(event) {
 
     // Get sender id
-	console.log("Event:"+JSON.stringify(event));
-
     var sender = event.sender.id.toString();
-
-	console.log("Sender:"+sender);
     
+	try
+	{
 	var ref = event.delivery.watermark;
 	
 	console.log("Ref_new:"+JSON.stringify(ref));		
@@ -46,11 +44,10 @@ function processFacebookEvent(event) {
 	console.log("Ref_exist:"+ref);		
 	}
 
-	if(ref != undefined || ref != "")
-	{
-	console.log("Graph api code");				
+	console.log("Graph api code");
 	}
-	else
+	
+	catch
 	{
     var text = "";
     if (event.message && event.message.text) {
