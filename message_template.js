@@ -55,7 +55,7 @@ connection.query('select * from offers', function(err, rows, fields) {
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
 			"buttons": arr1
 			}]
-			
+return messages;
 		});
 }		
 		
@@ -65,6 +65,7 @@ connection.query('select * from offers', function(err, rows, fields) {
 			"type":0,
 			"speech":"Thanks for your response."
 			}]			
+return messages;			
 		}
 
 		if(action == "surprisetalk")
@@ -72,10 +73,10 @@ connection.query('select * from offers', function(err, rows, fields) {
 		var messages = [{
 			"type":0,
 			"speech":"Welcome to bot chat."
-			}]			
+			}]	
+return messages;			
 		}
 		
-return messages;
 }	
 
 // Export module functions
