@@ -8,6 +8,7 @@ const async = require('async');
 function messageformat(action)
 {
 var arr1 = [];
+var messages = "Text";
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -53,12 +54,10 @@ if(action == "showOfferOptionsToUser")
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
-			"buttons":arr1
-			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
+			"buttons":[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 
-console.log("Message:"+JSON.stringify(messages));			
-
+console.log("Message:"+JSON.stringify(messages));
 }		
 		
 if(action == "UserAcceptance")
