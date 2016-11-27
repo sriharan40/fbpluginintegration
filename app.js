@@ -31,22 +31,10 @@ function processFacebookEvent(event) {
     
 	try
 	{
-	var ref = event.delivery.watermark;
-	
-	console.log("Ref_new:"+JSON.stringify(ref));		
-
-	if(ref != undefined || ref != "")
-	{
-	console.log("Ref_new:"+ref);		
-	}
-	else{
 	var ref = event.referral.ref;		
-	console.log("Ref_exist:"+ref);		
-	}
-
+	console.log("Ref_exist:"+ref);
 	console.log("Graph api code");
-	}
-	
+	}	
 	catch(e)
 	{
     var text = "";
