@@ -37,7 +37,7 @@ function processFacebookEvent(event) {
     
 	//var ref = event.delivery.watermark.toString();
 	//var ref = event.referral.ref.toString();		
-	var ref = event.delivery;
+	var ref = event.delivery.watermark;
 	
 	console.log("Ref_new:"+JSON.stringify(ref));		
 
