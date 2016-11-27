@@ -9,7 +9,9 @@ function messageformat(action)
 {
 var arr1 = [];
 var messages = "Text";
-
+	
+if(action == "showOfferOptionsToUser")
+{
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: process.env.db_user,
@@ -46,10 +48,7 @@ connection.query('select * from offers', function(err, rows, fields) {
             "text":rows[i].offer_name
           })
     }
-});			
-	
-if(action == "showOfferOptionsToUser")
-{
+
 	var messages = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
@@ -58,6 +57,8 @@ if(action == "showOfferOptionsToUser")
 			"buttons":arr1
 			}]
 
+});
+						
 console.log("Message:"+JSON.stringify(messages));
 }		
 		
