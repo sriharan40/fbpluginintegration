@@ -47,7 +47,6 @@ connection.query('select * from offers', function(err, rows, fields) {
             "text":rows[i].offer_name
           })
     }			
-		});
 
 	var messages = [{
 			"type":1,
@@ -58,6 +57,7 @@ connection.query('select * from offers', function(err, rows, fields) {
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 
+});			
 console.log("Message:"+JSON.stringify(messages));			
 
 }		
@@ -85,4 +85,4 @@ return messages;
 // Export module functions
 module.exports = {
     messageformat: messageformat,
-};
+};	
