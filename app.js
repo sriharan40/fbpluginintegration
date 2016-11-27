@@ -152,7 +152,7 @@ var i = 0;
 
 		console.log("message:"+JSON.stringify(messages[i]));
 
-		console.log(apiaiClient.sendResponse(sender, messages[i]));
+		apiaiClient.sendResponse(sender, messages[i], "");
 		
 		console.log("message:"+JSON.stringify(messages));	
 }		
