@@ -96,12 +96,11 @@ function processFacebookEvent(event) {
     var sender = event.sender.id.toString();
     
 
-	var ref = jsonvalue(event,'ref');
+	var ref = fbClient.jsonvalue(event,'ref');
 	
 	if(ref)
 	{
-	console.log("Ref_exist:"+ref);
-	console.log("Graph api code");
+    fbClient.sendSplitMessages(sender, ref);
 	}	
 	else
 	{
