@@ -49,7 +49,6 @@ var connection;
 function getResult(query,callback) {
   connection.query(query, function (err, rows) {
      if (!err) {
-		console.log("Rows:"+JSON.stringify(rows));	 
         callback(null,rows);
      }
      else {
@@ -60,9 +59,11 @@ function getResult(query,callback) {
 
 function getrows()
 {
+console.log("Rows:"+JSON.stringify(rows));	 	
 getResult("select * from offers",function(err,rows){
     if(!err){
-        return rows;
+		console.log("Rows:"+JSON.stringify(rows));
+	return rows;
     }else{
         console.log(err);
     }
