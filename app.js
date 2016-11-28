@@ -79,7 +79,7 @@ else
         fbClient.userInfoRequest(sender)
             .then(userInfoStr=> {
                 // Initialize userInto
-                var userInfo = {first_name: "friend"};
+                var userInfo = {first_name: "friend", devices: "devices"};
                 try {
                     userInfo = JSON.parse(userInfoStr);
                 } catch (err) {
