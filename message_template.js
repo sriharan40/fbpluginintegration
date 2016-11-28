@@ -1,11 +1,13 @@
 /* jshint node: true */
 'use strict';
+var express = require('express');
+var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var sync = require('synchronize');
 //var mysql = require('mysql-libmysqlclient') ;
-const fbClient = require('./fb_client');
-const misc = require('./misc');
-const async = require('async');
+//const fbClient = require('./fb_client');
+//const misc = require('./misc');
+//const async = require('async');
 
 function messageformat(action)
 {
