@@ -10,7 +10,7 @@ function messageformat(action)
 {
 var arr1 = [];
 	
-if(action == "showOfferOptionsToUser")
+if(action == "showOfferOptionsToUser" || action == "surprisetalk")
 {
 
 var db_config = {
@@ -75,7 +75,7 @@ var messages = [{
 return messages;	
 }
 
-if(action == "surprisetalk")
+if(action == "surprisetalk2")
 {
 var messages = [{
 	"type":0,
