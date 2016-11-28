@@ -42,7 +42,9 @@ var connection;
         }
     });
 
-sync.await(connection.query('select * from offers', function(err, rows, fields) {
+//sync.await(connection.query('select * from offers', function(err, rows, fields) {
+var rows = sync.await(connection.query('select * from offers', sync.defer()));
+
     if (err) throw err; 
     for (var i in rows) {
          arr1.push({
@@ -51,7 +53,7 @@ sync.await(connection.query('select * from offers', function(err, rows, fields) 
           })
     }
 
-}));
+//}));
 	
 console.log("Arr:"+JSON.stringify(arr1));
 
