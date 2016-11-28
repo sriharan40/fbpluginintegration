@@ -61,21 +61,20 @@ function getrows()
 {
 getResult("select * from offers",function(err,rows){
     if(!err){
-	console.log("Rows:"+JSON.stringify(rows));
-	return rows;
+		return rows;
     }else{
         console.log(err);
     }
   });
 }
 
-var rows = getrows();
+var rows12 = getrows();
 
     if (err) throw err; 
-    for (var i in rows) {
+    for (var i in rows12) {
          arr1.push({
-            "postback":rows[i].description,
-            "text":rows[i].offer_name
+            "postback":rows12[i].description,
+            "text":rows12[i].offer_name
           })
     }
 
