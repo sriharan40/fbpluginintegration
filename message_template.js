@@ -47,7 +47,7 @@ var connection;
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
 function getResult(query,callback) {
-  executeQuery(query, function (err, rows) {
+  connection.query(query, function (err, rows) {
      if (!err) {
         callback(null,rows);
      }
