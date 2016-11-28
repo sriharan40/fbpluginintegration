@@ -61,11 +61,12 @@ function getrows()
 {
 getResult("select * from offers",function(err,rows){
     if(!err){
-		return rows;
+		var rows12 = rows;
     }else{
         console.log(err);
     }
   });
+return rows12;  
 }
 
 var rows12 = getrows();
