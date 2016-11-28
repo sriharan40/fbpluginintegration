@@ -53,6 +53,8 @@ sync.await(connection.query('select * from offers', function(err, rows, fields) 
 
 }));
 	
+console.log("Arr:"+JSON.stringify(arr1));
+
 	var messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
