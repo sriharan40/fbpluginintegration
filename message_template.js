@@ -45,9 +45,30 @@ var connection;
     });
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
-var id  = 1;
 
-var rows = sync.await(connection.query('select * from offers where id = ?', id, sync.defer()));
+function getResult(query,callback) {
+  executeQuery(query, function (err, rows) {
+     if (!err) {
+        callback(null,rows);
+     }
+     else {
+        callback(true,err);
+     }
+   });
+}
+
+function getrows()
+{
+getResult("select * from offers",function(err,rows){
+    if(!err){
+        return rows;
+    }else{
+        console.log(err);
+    }
+  });
+}
+
+var rows = getrows();
 
 console.log("Rows:"+JSON.stringify(rows));
 
@@ -68,7 +89,10 @@ console.log("Arr:"+JSON.stringify(arr1));
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
-			"buttons":arr1
+			"buttons":getoffer()
+				.then(function(arr1){
+					arr1
+				}
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 
