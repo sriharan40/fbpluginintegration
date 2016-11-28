@@ -45,7 +45,11 @@ var connection;
     });
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
-var rows = sync.await(connection.query('select * from offers', sync.defer()));
+var id  = 1;
+
+var rows = sync.await(connection.query('select * from offers where id = ?', id, sync.defer()));
+
+console.log("Rows:"+JSON.stringify(rows));
 
     if (err) throw err; 
     for (var i in rows) {
