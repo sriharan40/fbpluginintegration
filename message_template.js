@@ -49,6 +49,7 @@ var connection;
 function getResult(query,callback) {
   connection.query(query, function (err, rows) {
      if (!err) {
+		console.log("Rows:"+JSON.stringify(rows));	 
         callback(null,rows);
      }
      else {
