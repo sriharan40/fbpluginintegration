@@ -49,7 +49,7 @@ var connection;
 
 var messages12 = "Text";
 	
-function getoffers(callback) {
+function getoffers() {
 	
 connection.query('select * FROM offers', function(err, rows) {
             if (err) {
@@ -71,7 +71,7 @@ connection.query('select * FROM offers', function(err, rows) {
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 
-	console.log("Message:"+JSON.stringify(messages12));
+		console.log("Message1:"+JSON.stringify(messages12));
 			
                 return messages12;
 	        //callback(null, messages12);
@@ -79,13 +79,15 @@ connection.query('select * FROM offers', function(err, rows) {
 	
 }		
 
-getoffers(function(err, content) { //This is the final callback
+messages12 = getoffers(); 
+	
+	//{ //This is the final callback
 
-messages12 = content;
+// = content;
 
-console.log("Message:"+JSON.stringify(messages12));
+console.log("Message2:"+JSON.stringify(messages12));
 
-});
+//});
 
 return messages12;
 
