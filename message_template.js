@@ -67,14 +67,11 @@ var messages12 = [{
 	"subtitle":"Vamos",
 	"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
 	"buttons":arr1
-	//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 	}]
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-apiaiClient.handleMessages(messages12,sender,"");
-
-console.log("Message3:"+JSON.stringify(messages12));	
+fbClient.handleMessages(messages12,sender,"");
 
 }
   
