@@ -58,13 +58,13 @@ connection.query("select * from offers",function(err,rows){
             "text":rows[i].offer_name
           })
     }
+console.log("Arr:"+JSON.stringify(arr1));	
 	}else{
         console.log(err);
     }
 });
 
 }
-//}));
 
 ], function(err) {
 
