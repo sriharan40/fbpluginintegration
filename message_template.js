@@ -1,10 +1,14 @@
 /* jshint node: true */
 'use strict';
+var express = require('express');
+var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var sync = require('synchronize');
+var globals = require('globals');
 //var mysql = require('mysql-libmysqlclient') ;
-const fbClient = require('./fb_client');
-const misc = require('./misc');
-const async = require('async');
+//const fbClient = require('./fb_client');
+//const misc = require('./misc');
+var async = require('async');
 
 function messageformat(action)
 {
@@ -41,26 +45,42 @@ var connection;
         }
     });
 
-connection.query('select * from offers', function(err, rows, fields) {
-    if (err) throw err; 
-    for (var i in rows) {
+//sync.await(connection.query('select * from offers', function(err, rows, fields) {
+
+function getoffers(callback) {
+	
+connection.query('select * FROM offers', function(err, rows) {
+            if (err) {
+                callback(err, null);
+            } else 
+	for (var i in rows) {
          arr1.push({
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-    }
+}
 
-});
-	
-	var messages12 = [{
+		var	messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
  			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
-			"buttons":[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
+			"buttons":arr1
+			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
+			
+                callback(null, messages12);
+        });
+	
+}		
+
+getoffers(function(err, content) { //This is the final callback
+
+var messages12 = content;
 
 console.log("Message:"+JSON.stringify(messages12));
+
+});
 
 return messages12;
 
