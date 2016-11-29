@@ -75,7 +75,7 @@ console.log("In handle result");
         return;
     }
 console.log("result:"+JSON.stringify(result));	
-
+return result;
     // All your logic with the result.
 }
 
