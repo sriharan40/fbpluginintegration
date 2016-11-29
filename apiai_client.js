@@ -14,7 +14,30 @@ const messag = require('./message_template');
  * @param response Response from API.AI.
  * @param callback Callback function.
  */
- 	
+
+function getmessage(messages,sender)
+{
+if(messages)
+{
+console.log("Message2:"+JSON.stringify(messages));
+// Adding delay between responses
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages.length - 1;
+	},
+	function (innerCallback) {
+		sendResponse(sender, messages[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, "");
+}
+
+}
+ 
 function handleApiAiResponse(sender, response, callback) {
 
     // Do we have a result?
@@ -93,5 +116,6 @@ function sendResponse(sender, message, callback) {
 // Expoer module functions
 module.exports = {
     handleApiAiResponse: handleApiAiResponse,
-	sendResponse: sendResponse
+	sendResponse: sendResponse,
+	getmessage: getmessage
 };
