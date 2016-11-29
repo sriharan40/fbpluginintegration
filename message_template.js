@@ -26,7 +26,7 @@ async.whilst(
 				innerCallback();
 			}, 1000);
 		})
-	}, callback);
+	}, "");
 }
 
 }
