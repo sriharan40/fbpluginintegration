@@ -73,7 +73,7 @@ console.log("In handle result");
         // later and that could cause an exception.
         return;
     }
-console.log("result:"+result);	
+console.log("result:"+JSON.stringify(result));	
 
     // All your logic with the result.
 }
