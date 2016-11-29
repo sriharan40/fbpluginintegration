@@ -47,7 +47,55 @@ var connection;
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
-function getResult(query,callback) {
+async.parallel([
+
+function (query,callback) {
+  connection.query(query, function (err, rows) {
+     if (!err) {
+        callback(null,rows);
+    if (err) throw err; 
+    for (var i in rows) {
+         arr1.push({
+            "postback":rows[i].description,
+            "text":rows[i].offer_name
+          })
+    }	
+console.log("Arr:"+JSON.stringify(arr1));	
+		}
+     else {
+        callback(true,err);
+		console.log("Err:"+JSON.stringify(err));		
+     }
+   });
+},
+
+function(callback) {
+function("select * from offers",function(err,rows){
+    if(!err){
+		var rows12 = rows;
+	}else{
+        console.log(err);
+    }
+});
+
+}
+//}));
+
+], function(err) {
+
+console.log("Arr:"+JSON.stringify(arr1));
+
+	var messages12 = [{
+			"type":1,
+			"title":"Top Pick Offers today.",
+			"subtitle":"Vamos",
+ 			"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
+			"buttons":arr1
+			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
+			}]
+});
+
+/* function getResult(query,callback) {
   connection.query(query, function (err, rows) {
      if (!err) {
         callback(null,rows);
@@ -93,6 +141,7 @@ console.log("Arr:"+JSON.stringify(arr1));
 			"buttons":arr1
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
+*/
 
 console.log("Message:"+JSON.stringify(messages12));
 
