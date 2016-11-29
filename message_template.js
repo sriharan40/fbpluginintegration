@@ -47,11 +47,7 @@ var connection;
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
-var user_id = {
-	id: 1
-};
-
-function getoffers(data, callback) {
+function getoffers(callback) {
 	
 connection.query('select * FROM offers', function(err, rows) {
             if (err) {
