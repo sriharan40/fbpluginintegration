@@ -55,24 +55,24 @@ function getResult(query,callback) {
         callback(true,err);
      }
    });
-console.log("Rows:"+JSON.stringify(rows12));
 }
 
-function getrows()
+function getrows(callback)
 {
 getResult("select * from offers",function(err,rows){
     if(!err){
 		var rows12 = rows;
-    }else{
+		callback(rows12);
+	}else{
         console.log(err);
     }
-console.log("Rows:"+rows12);	
-  });
-//return rows12;  
-console.log("Rows:"+JSON.stringify(rows12));
+});
+
 }
 
-var rows12 = getrows();
+var rows12 = getrows(rows12);
+
+console.log("Rows:"+JSON.stringify(rows12));
 
     if (err) throw err; 
     for (var i in rows12) {
