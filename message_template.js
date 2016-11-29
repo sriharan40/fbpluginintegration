@@ -70,7 +70,16 @@ getResult("select * from offers",function(err,rows){
 
 }
 
-var rows12 = getrows(rows12);
+var rows12 = getrows(function(err,rows){
+if(!err){
+var rows12 = rows;	
+console.log("Rows:"+JSON.stringify(rows12));	
+} 	
+else
+{
+        console.log(err);	
+}
+)};
 
 console.log("Rows:"+JSON.stringify(rows12));
 
