@@ -54,11 +54,13 @@ for (var i in rows) {
 	  })
 }	  
 
+connection.query('select * from category', function(err, rows12) {
+
 var messages12 = [{
 	"type":1,
-	"title":"Top Pick Offers today.",
-	"subtitle":"Vamos",
-	"imageUrl":"http://images.hardwarezone.com/upload/files/2013/11/6891939f6d.jpg",
+	"title":rows12[0].title,
+	"subtitle":rows12[0].sub_title,
+	"imageUrl":rows12[0].img_url,
 	"buttons":arr1
 	}]
 
@@ -66,8 +68,10 @@ console.log("Message1:"+JSON.stringify(messages12));
 
 apiaiClient.handleMessages(messages12,sender,"");
 	  
+});  
+
 }
-  
+
 });	
 	
 }								
