@@ -1,11 +1,16 @@
 /* jshint node: true */
 'use strict';
 
+const apiai = require('apiai');
 const express = require('express');
 const bodyParser = require('body-parser');
+const uuid = require('uuid');
+const request = require('request');
 const mysql = require('mysql');
+const JSONbigint = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
+const messag = require('./message_template');
 const misc = require('./misc');
 const async = require('async');
 
@@ -67,9 +72,9 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-apiaiClient.handleMessages(messages12,sender, function () {
+var sentmessage = apiaiClient.handleMessages(messages12,sender,"");
+
 console.log("Message3:"+JSON.stringify(messages12));	
-});
 
 }
   
