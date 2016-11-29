@@ -63,7 +63,7 @@ connection.query("select * from offers",function(err,rows){
           })
 }
 
-	globals.messages12 = [{
+var	messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
@@ -84,7 +84,9 @@ callback();
 }
 
 ], function(err) { //This is the final callback
-    console.log('Both a and b are saved now');
+
+return messages12;
+
 });
 
 /* function getResult(query,callback) {
@@ -136,8 +138,6 @@ console.log("Arr:"+JSON.stringify(arr1));
 */
 
 console.log("Message:"+JSON.stringify(messages12));
-
-return messages12;
 
 }								
 		
