@@ -72,6 +72,8 @@ console.log("Arr:"+JSON.stringify(arr1));
 
 console.log("Message:"+JSON.stringify(messages12));
 
+return messages12;
+
 	}else{
         console.log(err);
     }
@@ -83,7 +85,7 @@ callback();
 
 ], function(err) { //This is the final callback
 
-return messages12;
+//return messages12;
 
 });
 
