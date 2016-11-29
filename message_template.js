@@ -51,7 +51,16 @@ var messages12 = "Text";
 	
 function getTopoffers() {
 	
-var rows = connection.query('select * FROM offers');
+var rows = connection.query('select * FROM offers', function(err, result) {
+if(err)
+{
+	throw err;
+}
+	else
+	{
+	}	
+return result;
+});
 	
 console.log("Rows:"+JSON.stringify(rows));
 	
