@@ -54,11 +54,12 @@ function getTopoffers() {
 var rows = connection.query('select * FROM offers', function(err, result) {
 if(err)
 {
-	throw err;
+throw err;
 }
-	else
-	{
-	}	
+else
+{
+console.log(result);		
+}	
 return result;
 });
 	
