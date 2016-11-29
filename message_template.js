@@ -55,6 +55,7 @@ function getResult(query,callback) {
         callback(true,err);
      }
    });
+console.log("Rows:"+JSON.stringify(rows12));
 }
 
 function getrows()
