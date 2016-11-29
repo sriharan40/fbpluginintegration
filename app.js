@@ -37,7 +37,8 @@ var ref = fbClient.jsonvalue(event,'ref');
 
 if(ref)
 {
-var messages = messag.messageformat(ref);
+var messages = messag.messageformat(ref,sender);
+
 var callback = "";
 	
 if(messages)
