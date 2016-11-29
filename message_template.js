@@ -64,7 +64,7 @@ console.log("Rows:"+JSON.stringify(rows));
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-//}
+	}
 
 		messages12 = [{
 			"type":1,
