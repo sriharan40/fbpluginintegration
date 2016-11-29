@@ -47,12 +47,20 @@ var connection;
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
-async.parallel([
+var user_id = {
+	id: 1
+};
 
-function(callback) {
-connection.query("select * from offers",function(err,rows){
-    if(!err){
-    for (var i in rows) {
+function getoffers(data, callback) {
+	
+connection.query('select * FROM offers WHERE id = ?', data.id, function(err, rows) {
+            if (err) {
+                callback(err, null);
+            } else 
+                callback(null, rows);
+        });
+
+	for (var i in rows) {
          arr1.push({
             "postback":rows[i].description,
             "text":rows[i].offer_name
@@ -68,24 +76,19 @@ var	messages12 = [{
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 			
-console.log("Arr:"+JSON.stringify(arr1));
+//console.log("Arr:"+JSON.stringify(arr1));
 
-console.log("Message:"+JSON.stringify(messages12));
+//console.log("Message:"+JSON.stringify(messages12));
 
 return messages12;
 
-	}else{
-        console.log(err);
-    }
-callback();
+}		
 
-});
+getoffers(user_id, function(err, content) { //This is the final callback
 
-}
+console.log("Message:"+JSON.stringify(content));
 
-], function(err) { //This is the final callback
-
-//return messages12;
+return content;
 
 });
 
