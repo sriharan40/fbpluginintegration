@@ -73,7 +73,11 @@ var	messages12 = [{
 			}]
 			
 console.log("Arr:"+JSON.stringify(arr1));
+
 console.log("Message:"+JSON.stringify(messages12));
+
+return messages12;
+
 	}else{
         console.log(err);
     }
@@ -85,7 +89,7 @@ callback();
 
 ], function(err) { //This is the final callback
 
-return messages12;
+//return messages12;
 
 });
 
@@ -136,8 +140,6 @@ console.log("Arr:"+JSON.stringify(arr1));
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 */
-
-console.log("Message:"+JSON.stringify(messages12));
 
 }								
 		
