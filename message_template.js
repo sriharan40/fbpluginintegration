@@ -67,8 +67,8 @@ getResult("select * from offers",function(err,rows){
     }
 console.log("Rows:"+rows12);	
   });
-return rows12;  
-console.log("Rows:"+rows12);
+//return rows12;  
+console.log("Rows:"+JSON.stringify(rows12));
 }
 
 var rows12 = getrows();
