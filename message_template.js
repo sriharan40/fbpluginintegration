@@ -8,7 +8,7 @@ var mysql = require('mysql');
 //const fbClient = require('./fb_client');
 var async = require('async');
 
-function getmessage(messages)
+function getmessage(messages,sender)
 {
 if(messages)
 {
@@ -31,7 +31,7 @@ async.whilst(
 
 }
 
-function messageformat(action)
+function messageformat(action,sender)
 {
 var arr1 = [];
 	
@@ -89,7 +89,7 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-getmessage(messages12);
+getmessage(messages12,sender);
 }
   
 });	
