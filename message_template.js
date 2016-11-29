@@ -12,7 +12,7 @@ function getmessage(messages)
 {
 if(messages)
 {
-console.log("Message2:"+JSON.stringify(messages12));	
+console.log("Message2:"+JSON.stringify(messages));
 // Adding delay between responses
 var i = 0;
 async.whilst(
