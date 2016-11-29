@@ -1,18 +1,10 @@
 /* jshint node: true */
 'use strict';
 
-const apiai = require('apiai');
-const express = require('express');
-const bodyParser = require('body-parser');
-const uuid = require('uuid');
-const request = require('request');
-const mysql = require('mysql');
-const JSONbigint = require('json-bigint');
-const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
-const messag = require('./message_template');
 const misc = require('./misc');
 const async = require('async');
+const mysql = require('mysql');
 
 function messageformat(action,sender)
 {
@@ -21,8 +13,6 @@ var messages12 = "";
 	
 if(action == "showOfferOptionsToUser" || action == "surprisetalk")
 {
-
-apiaiClient.handleMessages.call(messages12,sender,"");
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -73,6 +63,8 @@ var messages12 = [{
 	}]
 
 console.log("Message1:"+JSON.stringify(messages12));
+
+apiaiClient.handleMessages(messages12,sender,"");
 	  
 }
   
