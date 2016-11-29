@@ -60,11 +60,12 @@ function getResult(query,callback) {
    });
 }
 
-function getrows(callback)
+function getrows()
 {
 getResult("select * from offers",function(err,rows){
     if(!err){
 		var rows12 = rows;
+		return;
 	}else{
         console.log(err);
     }
@@ -74,7 +75,7 @@ getResult("select * from offers",function(err,rows){
 
 //}));
 
-getrows();
+var rows12 = getrows();
 
     if (err) throw err; 
     for (var i in rows12) {
