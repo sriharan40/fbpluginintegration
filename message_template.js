@@ -48,6 +48,21 @@ var connection;
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
 var messages12 = "Text";
+
+var someVar = [];
+
+connection.query("select * from offers", function(err, rows){
+  if(err) {
+    throw err;
+  } else {
+    setValue(rows);
+  }
+});
+
+function setValue(value) {
+  someVar = value;
+  console.log(someVar);
+}
 	
 function getTopOffers(callback) {
     var ret;
