@@ -22,7 +22,7 @@ var messages12 = "";
 if(action == "showOfferOptionsToUser" || action == "surprisetalk")
 {
 
-apiaiClient.handleMessages(messages12,sender,"");
+apiaiClient.handleMessages.call(messages12,sender,"");
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
