@@ -96,6 +96,5 @@ return messages;
 
 // Export module functions
 module.exports = {
-    messageformat: messageformat,
-	getmessage: getmessage
+    messageformat: messageformat
 };
