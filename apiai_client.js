@@ -4,7 +4,6 @@
 const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
-const messag = require('./message_template');
 
 
 /**
@@ -43,13 +42,11 @@ function handleApiAiResponse(sender, response, callback) {
     // Do we have a result?
     if (misc.isDefined(response.result)) {
 
-        console.log("Response is:" + JSON.stringify(response));
-        // Load messages
+        //console.log("Response is:" + JSON.stringify(response));
+        
+		// Load messages
         // var messages = response.result.fulfillment.messages;    
-		
-		var action = response.result.action;
 
-		messag.messageformat(action, sender);
     }
 }
 
