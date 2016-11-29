@@ -81,7 +81,7 @@ function handleResult(err, result) {
 console.log(getTopOffers(handleResult));
 	
 	
-function getTopoffers() {
+/* function getTopoffers() {
 	
 var rows = connection.query('select * FROM offers', function(err, result) {
 if(err)
@@ -90,7 +90,7 @@ throw err;
 }
 else
 {
-console.log(result);		
+//console.log(result);		
 }	
 return result;
 });
@@ -136,7 +136,8 @@ console.log("Message2:"+JSON.stringify(getTopoffers()));
 //});
 
 return getTopoffers();
-
+*/
+	
 }								
 		
 if(action == "UserAcceptance")
