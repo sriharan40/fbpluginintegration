@@ -66,6 +66,7 @@ function getTopOffers(callback) {
 
 
 function handleResult(err, result) {
+console.log("In handle result");	
     if (err) {
         // Just an example. You may want to do something with the error.
         console.error(err.stack || err.message);
@@ -74,11 +75,12 @@ function handleResult(err, result) {
         // later and that could cause an exception.
         return;
     }
+console.log("result:"+result);	
 
     // All your logic with the result.
 }
 
-console.log(getTopOffers(handleResult));
+getTopOffers(handleResult);
 	
 	
 /* function getTopoffers() {
