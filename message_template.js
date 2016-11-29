@@ -1,35 +1,12 @@
 /* jshint node: true */
 'use strict';
-const apiaiClient = require('./apiai_client');
-const misc = require('./misc');
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-//const fbClient = require('./fb_client');
 var async = require('async');
-
-function getmessage(messages,sender)
-{
-if(messages)
-{
-console.log("Message2:"+JSON.stringify(messages));
-// Adding delay between responses
-var i = 0;
-async.whilst(
-	function () {
-		return i <= messages.length - 1;
-	},
-	function (innerCallback) {
-		apiaiClient.sendResponse(sender, messages[i], function () {
-			setTimeout(function () {
-				i++;
-				innerCallback();
-			}, 1000);
-		})
-	}, "");
-}
-
-}
+const fbClient = require('./fb_client');
+const apiaiClient = require('./apiai_client');
+const misc = require('./misc');
 
 function messageformat(action,sender)
 {
@@ -89,7 +66,7 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-getmessage(messages12,sender);
+apiaiClient.getmessage(messages12,sender);
 }
   
 });	
