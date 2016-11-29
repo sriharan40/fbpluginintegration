@@ -45,11 +45,11 @@ function handleApiAiResponse(sender, response, callback) {
 
         console.log("Response is:" + JSON.stringify(response));
         // Load messages
-        var messages = response.result.fulfillment.messages;    
+        // var messages = response.result.fulfillment.messages;    
 		
 		var action = response.result.action;
 
-		var messages = messag.messageformat(action, sender);
+		messag.messageformat(action, sender);
     }
 }
 
