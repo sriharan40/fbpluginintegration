@@ -4,10 +4,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var sync = require('synchronize');
+var globals = require('globals');
 //var mysql = require('mysql-libmysqlclient') ;
 //const fbClient = require('./fb_client');
 //const misc = require('./misc');
-//const async = require('async');
+const async = require('async');
 
 function messageformat(action)
 {
@@ -46,13 +47,17 @@ var connection;
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
+async.parallel([
+
 function getResult(query,callback) {
   connection.query(query, function (err, rows) {
      if (!err) {
         callback(null,rows);
-     }
+		console.log("Rows:"+JSON.stringify(rows));
+		}
      else {
         callback(true,err);
+		console.log("Rows:"+JSON.stringify(err));		
      }
    });
 }
@@ -62,7 +67,6 @@ function getrows(callback)
 getResult("select * from offers",function(err,rows){
     if(!err){
 		var rows12 = rows;
-		callback(rows12);
 	}else{
         console.log(err);
     }
@@ -70,18 +74,9 @@ getResult("select * from offers",function(err,rows){
 
 }
 
-var rows12 = getrows(function(err,rows){
-if(!err){
-var rows12 = rows;	
-console.log("Rows:"+JSON.stringify(rows12));	
-} 	
-else
-{
-        console.log(err);	
-}
-)};
+//}));
 
-console.log("Rows:"+JSON.stringify(rows12));
+], getrows(err, rows12) {
 
     if (err) throw err; 
     for (var i in rows12) {
@@ -90,8 +85,6 @@ console.log("Rows:"+JSON.stringify(rows12));
             "text":rows12[i].offer_name
           })
     }
-
-//}));
 	
 console.log("Arr:"+JSON.stringify(arr1));
 
@@ -107,6 +100,8 @@ console.log("Arr:"+JSON.stringify(arr1));
 console.log("Message:"+JSON.stringify(messages12));
 
 return messages12;
+
+}
 
 }								
 		
