@@ -57,7 +57,8 @@ function getResult(query,callback) {
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-    }		
+    }	
+console.log("Arr:"+JSON.stringify(arr1));	
 		}
      else {
         callback(true,err);
@@ -71,7 +72,6 @@ function getrows()
 getResult("select * from offers",function(err,rows){
     if(!err){
 		var rows12 = rows;
-		return;
 	}else{
         console.log(err);
     }
@@ -81,9 +81,7 @@ getResult("select * from offers",function(err,rows){
 
 //}));
 
-var rows12 = getrows();
-
-console.log("Rows:"+JSON.stringify(rows12));
+getrows();
 	
 console.log("Arr:"+JSON.stringify(arr1));
 
