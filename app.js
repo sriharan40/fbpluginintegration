@@ -102,7 +102,15 @@ else
 
                 // Handle response
                 apiaiRequest.on('response', response => {
-                    apiaiClient.handleApiAiResponse(sender, response);
+                    
+					console.log("Response is:" + JSON.stringify(response));
+					
+					//apiaiClient.handleApiAiResponse(sender, response);
+							
+					var action = response.result.action;
+
+					messag.messageformat(action, sender);
+		
                 });
                 apiaiRequest.on('error', error => console.error(error));
                 apiaiRequest.end();
