@@ -8,6 +8,29 @@ var mysql = require('mysql');
 //const fbClient = require('./fb_client');
 var async = require('async');
 
+function getmessage(messages)
+{
+if(messages)
+{
+console.log("Message2:"+JSON.stringify(messages12));	
+// Adding delay between responses
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages.length - 1;
+	},
+	function (innerCallback) {
+		apiaiClient.sendResponse(sender, messages[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, callback);
+}
+
+}
+
 function messageformat(action)
 {
 var arr1 = [];
@@ -66,7 +89,7 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-apiaiClient.getmessage(messages12);
+getmessage(messages12);
 }
   
 });	
@@ -96,4 +119,5 @@ return messages;
 // Export module functions
 module.exports = {
     messageformat: messageformat,
+	getmessage: getmessage
 };
