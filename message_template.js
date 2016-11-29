@@ -49,6 +49,38 @@ var connection;
 
 var messages12 = "Text";
 	
+function getTopOffers(callback) {
+    var ret;
+
+    connection.query("SELECT * from offers", function(err, rows, fields) {
+        if (err) {
+            // You must `return` in this branch to avoid using callback twice.
+            return callback(err);
+        }
+
+        // Do something with `rows` and `fields` and assign a value to ret.
+
+        callback(null, ret);
+    });
+}
+
+
+function handleResult(err, result) {
+    if (err) {
+        // Just an example. You may want to do something with the error.
+        console.error(err.stack || err.message);
+
+        // You should return in this branch, since there is no result to use
+        // later and that could cause an exception.
+        return;
+    }
+
+    // All your logic with the result.
+}
+
+console.log(getTopOffers(handleResult));
+	
+	
 function getTopoffers() {
 	
 var rows = connection.query('select * FROM offers', function(err, result) {
