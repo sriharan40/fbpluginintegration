@@ -49,30 +49,15 @@ var connection;
 
 async.parallel([
 
-function (query,callback) {
-  connection.query(query, function (err, rows) {
-     if (!err) {
-        callback(null,rows);
-    if (err) throw err; 
+function(callback) {
+connection.query("select * from offers",function(err,rows){
+    if(!err){
     for (var i in rows) {
          arr1.push({
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-    }	
-console.log("Arr:"+JSON.stringify(arr1));	
-		}
-     else {
-        callback(true,err);
-		console.log("Err:"+JSON.stringify(err));		
-     }
-   });
-},
-
-function(callback) {
-function("select * from offers",function(err,rows){
-    if(!err){
-		var rows12 = rows;
+    }
 	}else{
         console.log(err);
     }
