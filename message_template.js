@@ -1,12 +1,13 @@
 /* jshint node: true */
 'use strict';
-var express = require('express');
-var bodyParser = require('body-parser');
-var mysql = require('mysql');
-var async = require('async');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const misc = require('./misc');
+const async = require('async');
 
 function messageformat(action,sender)
 {
