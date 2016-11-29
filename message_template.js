@@ -89,11 +89,11 @@ console.log("Rows:"+JSON.stringify(rows));
 
 // = content;
 
-console.log("Message2:"+JSON.stringify(getTopoffers));
+console.log("Message2:"+JSON.stringify(getTopoffers()));
 
 //});
 
-return getTopoffers;
+return getTopoffers();
 
 }								
 		
