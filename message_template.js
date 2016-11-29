@@ -57,9 +57,6 @@ connection.query('select * FROM offers WHERE id = ?', data.id, function(err, row
             if (err) {
                 callback(err, null);
             } else 
-                callback(null, rows);
-        });
-
 	for (var i in rows) {
          arr1.push({
             "postback":rows[i].description,
@@ -67,7 +64,7 @@ connection.query('select * FROM offers WHERE id = ?', data.id, function(err, row
           })
 }
 
-var	messages12 = [{
+		var	messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
@@ -76,11 +73,12 @@ var	messages12 = [{
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
 			
+                callback(null, messages12);
+        });
+	
 //console.log("Arr:"+JSON.stringify(arr1));
 
 //console.log("Message:"+JSON.stringify(messages12));
-
-return messages12;
 
 }		
 
