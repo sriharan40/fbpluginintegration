@@ -57,7 +57,8 @@ connection.query("select * from offers",function(err,rows){
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-    }
+console.log("Arr:"+JSON.stringify(arr1));
+}
 	}else{
         console.log(err);
     }
@@ -82,7 +83,9 @@ console.log("Message:"+JSON.stringify(messages12));
 			
 }
 
-]);
+], function(err) { //This is the final callback
+    console.log('Both a and b are saved now');
+});
 
 /* function getResult(query,callback) {
   connection.query(query, function (err, rows) {
