@@ -14,6 +14,29 @@ const messag = require('./message_template');
  * @param response Response from API.AI.
  * @param callback Callback function.
  */
+ 
+function getmessage(messages)
+{
+if(messages)
+{
+// Adding delay between responses
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages.length - 1;
+	},
+	function (innerCallback) {
+		sendResponse(sender, messages[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, callback);
+}
+
+}
+		
 function handleApiAiResponse(sender, response, callback) {
 
     // Do we have a result?
@@ -26,24 +49,6 @@ function handleApiAiResponse(sender, response, callback) {
 		var action = response.result.action;
 
 		var messages = messag.messageformat(action);
-	
-		if(messages)
-		{
-        // Adding delay between responses
-        var i = 0;
-        async.whilst(
-            function () {
-                return i <= messages.length - 1;
-            },
-            function (innerCallback) {
-                sendResponse(sender, messages[i], function () {
-                    setTimeout(function () {
-                        i++;
-                        innerCallback();
-                    }, 1000);
-                })
-            }, callback);
-		}
     }
 }
 
@@ -110,5 +115,6 @@ function sendResponse(sender, message, callback) {
 // Expoer module functions
 module.exports = {
     handleApiAiResponse: handleApiAiResponse,
-	sendResponse: sendResponse
+	sendResponse: sendResponse,
+	getmessage: getmessage
 };
