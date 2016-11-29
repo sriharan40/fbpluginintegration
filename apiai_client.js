@@ -15,7 +15,7 @@ const messag = require('./message_template');
  * @param callback Callback function.
  */
 
-function handlemessage(messages,sender)
+function handleMessages(messages, sender, callback)
 {
 if(messages)
 {
@@ -33,7 +33,7 @@ async.whilst(
 				innerCallback();
 			}, 1000);
 		})
-	}, "");
+	}, callback);
 }
 
 }
@@ -117,5 +117,5 @@ function sendResponse(sender, message, callback) {
 module.exports = {
     handleApiAiResponse: handleApiAiResponse,
 	sendResponse: sendResponse,
-	handlemessage: handlemessage
+	handleMessages: handleMessages
 };
