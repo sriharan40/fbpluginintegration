@@ -51,11 +51,17 @@ function getResult(query,callback) {
   connection.query(query, function (err, rows) {
      if (!err) {
         callback(null,rows);
-		console.log("Rows:"+JSON.stringify(rows));
+    if (err) throw err; 
+    for (var i in rows) {
+         arr1.push({
+            "postback":rows[i].description,
+            "text":rows[i].offer_name
+          })
+    }		
 		}
      else {
         callback(true,err);
-		console.log("Rows:"+JSON.stringify(err));		
+		console.log("Err:"+JSON.stringify(err));		
      }
    });
 }
@@ -77,13 +83,7 @@ getResult("select * from offers",function(err,rows){
 
 var rows12 = getrows();
 
-    if (err) throw err; 
-    for (var i in rows12) {
-         arr1.push({
-            "postback":rows12[i].description,
-            "text":rows12[i].offer_name
-          })
-    }
+console.log("Rows:"+JSON.stringify(rows12));
 	
 console.log("Arr:"+JSON.stringify(arr1));
 
