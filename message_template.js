@@ -50,24 +50,6 @@ var connection;
 async.parallel([
 
 function(callback) {
-connection.query("select * from offers",function(err,rows){
-    if(!err){
-    for (var i in rows) {
-         arr1.push({
-            "postback":rows[i].description,
-            "text":rows[i].offer_name
-          })
-}
-callback();
-console.log("Arr:"+JSON.stringify(arr1));
-	}else{
-        console.log(err);
-    }
-});
-
-},
-
-function(callback) {
 
 console.log("Arr:"+JSON.stringify(arr1),callback);
 
@@ -82,6 +64,25 @@ console.log("Arr:"+JSON.stringify(arr1),callback);
 
 console.log("Message:"+JSON.stringify(messages12));
 			
+},
+
+function(callback) {
+connection.query("select * from offers",function(err,rows){
+    if(!err){
+    for (var i in rows) {
+         arr1.push({
+            "postback":rows[i].description,
+            "text":rows[i].offer_name
+          })
+}
+console.log("Arr:"+JSON.stringify(arr1));
+	}else{
+        console.log(err);
+    }
+callback();
+
+});
+
 }
 
 ], function(err) { //This is the final callback
