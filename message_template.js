@@ -47,6 +47,8 @@ var connection;
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
+var messages12 = "Text";
+	
 function getoffers(callback) {
 	
 connection.query('select * FROM offers', function(err, rows) {
@@ -60,7 +62,7 @@ connection.query('select * FROM offers', function(err, rows) {
           })
 }
 
-		var	messages12 = [{
+		messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
@@ -68,15 +70,18 @@ connection.query('select * FROM offers', function(err, rows) {
 			"buttons":arr1
 			//[{"postback":"https://goo.gl/6eFDBP","text":"Facebook 1 hr"},{"postback":"https://goo.gl/sIZCze","text":"Youtube 1 day"},{"postback":"https://goo.gl/G8x0Rq","text":"Clash of Clans"}]
 			}]
+
+	console.log("Message:"+JSON.stringify(messages12));
 			
-                callback(null, messages12);
+                return messages12;
+	        //callback(null, messages12);
         });
 	
 }		
 
 getoffers(function(err, content) { //This is the final callback
 
-var messages12 = content;
+messages12 = content;
 
 console.log("Message:"+JSON.stringify(messages12));
 
