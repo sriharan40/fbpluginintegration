@@ -79,9 +79,12 @@ console.log("result:"+JSON.stringify(result));
     // All your logic with the result.
 }
 
-getTopOffers(handleResult);
+var offer_data = getTopOffers(handleResult);
 	
-	
+console.log("result12:"+JSON.stringify(offer_data));	
+
+	console.log("result13:"+JSON.stringify(getTopOffers(handleResult)));	
+
 /* function getTopoffers() {
 	
 var rows = connection.query('select * FROM offers', function(err, result) {
