@@ -59,7 +59,7 @@ function getTopOffers(callback) {
 
         // Do something with `rows` and `fields` and assign a value to ret.
 	ret = rows;
-        callback(null, ret);
+        return callback(null, ret);
     });
 }
 
