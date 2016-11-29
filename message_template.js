@@ -76,7 +76,9 @@ getResult("select * from offers",function(err,rows){
 
 //}));
 
-], getrows(err, rows12) {
+], function(err, rows12) {
+
+getrows();
 
     if (err) throw err; 
     for (var i in rows12) {
