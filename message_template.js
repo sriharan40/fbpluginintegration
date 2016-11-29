@@ -101,7 +101,7 @@ console.log("Message:"+JSON.stringify(messages12));
 
 return messages12;
 
-}
+});
 
 }								
 		
