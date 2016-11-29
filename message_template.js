@@ -1,11 +1,11 @@
 /* jshint node: true */
 'use strict';
+const apiaiClient = require('./apiai_client');
+const misc = require('./misc');
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-const apiaiClient = require('./apiai_client');
 //const fbClient = require('./fb_client');
-//const misc = require('./misc');
 var async = require('async');
 
 function messageformat(action)
