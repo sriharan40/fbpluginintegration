@@ -53,7 +53,7 @@ var user_id = {
 
 function getoffers(data, callback) {
 	
-connection.query('select * FROM offers WHERE id = ?', data.id, function(err, rows) {
+connection.query('select * FROM offers', function(err, rows) {
             if (err) {
                 callback(err, null);
             } else 
@@ -76,19 +76,17 @@ connection.query('select * FROM offers WHERE id = ?', data.id, function(err, row
                 callback(null, messages12);
         });
 	
-//console.log("Arr:"+JSON.stringify(arr1));
-
-//console.log("Message:"+JSON.stringify(messages12));
-
 }		
 
-getoffers(user_id, function(err, content) { //This is the final callback
+getoffers(function(err, content) { //This is the final callback
 
-console.log("Message:"+JSON.stringify(content));
+var messages12 = content;
 
-return content;
+console.log("Message:"+JSON.stringify(messages12));
 
 });
+
+return messages12;
 
 }								
 		
