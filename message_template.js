@@ -49,18 +49,22 @@ var connection;
 
 var messages12 = "Text";
 	
-function getoffers() {
+function getTopoffers() {
 	
-connection.query('select * FROM offers', function(err, rows) {
-            if (err) {
-                callback(err, null);
-            } else 
+var rows = connection.query('select * FROM offers');
+	
+console.log("Rows:"+JSON.stringify(rows));
+	
+	//{
+        //    if (err) {
+        //        callback(err, null);
+        //    } else 
 	for (var i in rows) {
          arr1.push({
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-}
+//}
 
 		messages12 = [{
 			"type":1,
@@ -75,21 +79,21 @@ connection.query('select * FROM offers', function(err, rows) {
 			
                 return messages12;
 	        //callback(null, messages12);
-        });
+  //      });
 	
 }		
 
-messages12 = getoffers(); 
+//messages12 = getTopoffers(); 
 	
 	//{ //This is the final callback
 
 // = content;
 
-console.log("Message2:"+JSON.stringify(messages12));
+console.log("Message2:"+JSON.stringify(getTopoffers));
 
 //});
 
-return messages12;
+return getTopoffers;
 
 }								
 		
