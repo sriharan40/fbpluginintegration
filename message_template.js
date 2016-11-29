@@ -50,9 +50,7 @@ var connection;
 var messages12 = "Text";
 	
 function getTopOffers(callback) {
-    var ret;
-
-    connection.query("SELECT * from offers", function(err, rows, fields) {
+    var ret = connection.query("SELECT * from offers", function(err, rows, fields) {
         if (err) {
             // You must `return` in this branch to avoid using callback twice.
             return callback(err);
