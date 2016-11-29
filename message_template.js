@@ -67,7 +67,9 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-apiaiClient.handlemessage(messages12,sender);
+apiaiClient.handleMessages(messages12,sender, function () {
+console.log("Message3:"+JSON.stringify(messages12));	
+});
 
 }
   
