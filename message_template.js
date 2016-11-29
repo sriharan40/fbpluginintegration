@@ -8,7 +8,7 @@ var globals = require('globals');
 //var mysql = require('mysql-libmysqlclient') ;
 //const fbClient = require('./fb_client');
 //const misc = require('./misc');
-const async = require('async');
+var async = require('async');
 
 function messageformat(action)
 {
@@ -57,8 +57,9 @@ connection.query("select * from offers",function(err,rows){
             "postback":rows[i].description,
             "text":rows[i].offer_name
           })
-console.log("Arr:"+JSON.stringify(arr1));
 }
+callback();
+console.log("Arr:"+JSON.stringify(arr1));
 	}else{
         console.log(err);
     }
@@ -68,7 +69,7 @@ console.log("Arr:"+JSON.stringify(arr1));
 
 function(callback) {
 
-console.log("Arr:"+JSON.stringify(arr1));
+console.log("Arr:"+JSON.stringify(arr1),callback);
 
 	var messages12 = [{
 			"type":1,
