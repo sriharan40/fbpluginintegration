@@ -61,10 +61,12 @@ connection.query("select * from offers", function(err, rows){
 
 function setValue(value) {
   someVar = value;
-  console.log(someVar);
+//  console.log(someVar);
 }
 	
-function getTopOffers(callback) {
+  console.log(someVar);
+	
+/* function getTopOffers(callback) {
     var ret;
 	connection.query("SELECT * from offers", function(err, rows, fields) {
         if (err) {
