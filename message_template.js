@@ -17,9 +17,12 @@ const async = require('async');
 function messageformat(action,sender)
 {
 var arr1 = [];
+var messages12 = "";
 	
 if(action == "showOfferOptionsToUser" || action == "surprisetalk")
 {
+
+apiaiClient.handleMessages(messages12,sender,"");
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -71,8 +74,6 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-fbClient.handleMessages(messages12,sender,"");
-
 }
   
 });	
