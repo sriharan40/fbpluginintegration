@@ -2,6 +2,7 @@
 'use strict';
 
 const request = require('request');
+const apiaiClient = require('./apiai_client');
 const FB_PAGE_ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
 const misc = require('./misc');
 const async = require('async');
@@ -9,6 +10,29 @@ const async = require('async');
 /**
  * Sends a text message ensuring that long messages are split
  */
+ 
+function handleMessages(messages, sender, callback)
+{
+if(messages)
+{
+console.log("Message2:"+JSON.stringify(messages));
+// Adding delay between responses
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages.length - 1;
+	},
+	function (innerCallback) {
+		apiaiClient.sendResponse(sender, messages[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, callback);
+}
+
+}
  
 function jsonvalue(json,string)
 {	
@@ -260,5 +284,6 @@ module.exports = {
     sendSplitMessages: sendSplitTextMessages,
     sendImageMessage: sendImageMessage,
     userInfoRequest: userInfoRequest,
-	jsonvalue: jsonvalue
+	jsonvalue: jsonvalue,
+	handleMessages: handleMessages
 };
