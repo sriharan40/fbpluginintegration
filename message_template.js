@@ -47,8 +47,6 @@ var connection;
 
 //sync.await(connection.query('select * from offers', function(err, rows, fields) {
 
-async.parallel([
-
 function getResult(query,callback) {
   connection.query(query, function (err, rows) {
      if (!err) {
@@ -76,8 +74,6 @@ getResult("select * from offers",function(err,rows){
 
 //}));
 
-], function(err, rows12) {
-
 getrows();
 
     if (err) throw err; 
@@ -102,8 +98,6 @@ console.log("Arr:"+JSON.stringify(arr1));
 console.log("Message:"+JSON.stringify(messages12));
 
 return messages12;
-
-});
 
 }								
 		
