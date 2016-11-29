@@ -72,7 +72,7 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 	  
-var sentmessage = apiaiClient.handleMessages(messages12,sender,"");
+apiaiClient.handleMessages(messages12,sender,"");
 
 console.log("Message3:"+JSON.stringify(messages12));	
 
@@ -88,7 +88,7 @@ var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
 	}]			
-return messages;	
+apiaiClient.handleMessages(messages,sender,"");	
 }
 
 if(action == "surprisetalk2")
@@ -97,7 +97,7 @@ var messages = [{
 	"type":0,
 	"speech":"Welcome to bot chat."
 	}]
-return messages;	
+apiaiClient.handleMessages(messages,sender,"");	
 }
 		
 }	
