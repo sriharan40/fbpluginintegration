@@ -51,9 +51,7 @@ async.parallel([
 
 function(callback) {
 
-console.log("Arr:"+JSON.stringify(arr1),callback);
-
-	var messages12 = [{
+	globals.messages12 = [{
 			"type":1,
 			"title":"Top Pick Offers today.",
 			"subtitle":"Vamos",
