@@ -45,12 +45,12 @@ post_back = fbClient.jsonvalue(post_back,'payload');
 if(post_back)
 {
 
-console.log(deeplink(
-{  
-    fallback: 'globe.com.ph/deeplink?url='+post_back,
-    android_package_name: 'com.lotusflare.globe.de'
-}	
-));
+//console.log(deeplink(
+//{  
+//    fallback: 'globe.com.ph/deeplink?url='+post_back,
+//    android_package_name: 'com.lotusflare.globe.de'
+//}	
+//));
 	
 //var os = require('os').type();
 
