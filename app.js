@@ -47,7 +47,7 @@ if(post_back)
 
 console.log(deeplink(
 {  
-    fallback: 'https://goo.gl/QKNWyF',
+    fallback: 'globe.com.ph/deeplink?url='+post_back,
     android_package_name: 'com.lotusflare.globe.de'
 }	
 ));
