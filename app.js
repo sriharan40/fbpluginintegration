@@ -43,13 +43,9 @@ if(post_back)
 {
 
 var os = require('os').type();
-	
-console.log("OS:"+os);
 
-opener(post_back, function (err) {
-if (err) throw err;
-console.log('The user closed the browser');
-});
+opener('http://sindresorhus.com');
+
 }
 
 if(ref)
