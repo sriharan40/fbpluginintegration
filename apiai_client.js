@@ -69,7 +69,7 @@ function sendResponse(sender, message, callback) {
             if (misc.isDefined(message.buttons)) {
                 async.eachSeries(message.buttons, (button, innerCallback) => {
                     var payload = button.postback || button.text;
-                    if (payload.match(/http(s)?\:\/\/.*$/)) {
+                    if (payload.match(/https?\:\/\/.*$/)) {
                         buttons.push({
                             type: "web_url",
                             title: button.text,
