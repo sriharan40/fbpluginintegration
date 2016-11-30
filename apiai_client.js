@@ -5,6 +5,7 @@ const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
 const open = require('open');
+const opener = require("opener");
 
 /**
  * Handles API.AI Responses
@@ -19,7 +20,7 @@ function handleMessages(messages, sender, callback)
 if(messages)
 {
 
-open('http://www.google.com', function (err) {
+opener('http://www.google.com', function (err) {
   if (err) throw err;
   console.log('The user closed the browser');
 });
