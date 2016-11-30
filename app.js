@@ -10,6 +10,7 @@ const JSONbigint = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const messag = require('./message_template');
+const deeplink = require('node-deeplink');
 //const opener = require("opener");
 //const opener = require('opn');
 const misc = require('./misc');
@@ -42,11 +43,17 @@ var post_back = fbClient.jsonvalue(event,'payload');
 if(post_back)
 {
 
-var os = require('os').type();
+deeplink({ 
+    fallback: post_back,
+    android_package_name: 'com.lotusflare.globe.de', 
+    ios_store_link: 'https://itunes.apple.com/us/app',
+});
+	
+//var os = require('os').type();
 
-require('opn').xdg-open("https://www.facebook.com");
+//require('opn').xdg-open("https://www.facebook.com");
 
-require('opn')("https://www.facebook.com");
+//require('opn')("https://www.facebook.com");
 
 //opener('http://sindresorhus.com');
 
