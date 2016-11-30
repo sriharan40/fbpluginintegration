@@ -38,7 +38,9 @@ var sender = event.sender.id.toString();
 
 var ref = fbClient.jsonvalue(event,'ref');
 
-var post_back = fbClient.jsonvalue(event,'payload');
+var post_back = fbClient.jsonvalue(event,'postback');
+	
+post_back = fbClient.jsonvalue(post_back,'payload');
 
 if(post_back)
 {
