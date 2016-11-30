@@ -10,7 +10,8 @@ const JSONbigint = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const messag = require('./message_template');
-const opener = require("opener");
+//const opener = require("opener");
+const opener = require('opn');
 const misc = require('./misc');
 const async = require('async');
 
