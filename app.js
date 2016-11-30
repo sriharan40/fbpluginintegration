@@ -46,7 +46,7 @@ if(post_back)
 deeplink({ 
     fallback: post_back,
     android_package_name: 'com.lotusflare.globe.de', 
-    ios_store_link: 'https://itunes.apple.com/us/app',
+    ios_store_link: 'https://itunes.apple.com/us/app'
 });
 	
 //var os = require('os').type();
