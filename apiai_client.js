@@ -74,9 +74,7 @@ function sendResponse(sender, message, callback) {
                             type: "web_url",
                             title: button.text,
                             url: payload,
-			    fallback_url :payload,
-			    messenger_extensions :"true",
-			    webview_height_ratio : "full"
+			    fallback_url :payload
                         });
                     } else {
                         buttons.push({
