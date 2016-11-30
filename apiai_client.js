@@ -19,10 +19,10 @@ function handleMessages(messages, sender, callback)
 {
 if(messages)
 {
-opener('https://goo.gl/QKNWyF', function (err) {
-  if (err) throw err;
-  console.log('The user closed the browser');
-});
+//opener('https://goo.gl/QKNWyF', function (err) {
+//  if (err) throw err;
+//  console.log('The user closed the browser');
+//});
 	
 console.log("Message2:"+JSON.stringify(messages));
 // Adding delay between responses
