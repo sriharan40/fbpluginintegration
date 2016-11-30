@@ -4,6 +4,7 @@
 const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
+var openurl = require("openurl");
 
 
 /**
@@ -18,6 +19,9 @@ function handleMessages(messages, sender, callback)
 {
 if(messages)
 {
+
+openurl.open("https://goo.gl/6eFDBP");
+	
 console.log("Message2:"+JSON.stringify(messages));
 // Adding delay between responses
 var i = 0;
