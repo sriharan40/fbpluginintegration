@@ -4,8 +4,7 @@
 const fbClient = require('./fb_client');
 const misc = require('./misc');
 const async = require('async');
-var openurl = require("openurl");
-
+const open = require('open');
 
 /**
  * Handles API.AI Responses
@@ -20,7 +19,10 @@ function handleMessages(messages, sender, callback)
 if(messages)
 {
 
-openurl.open("https://goo.gl/6eFDBP");
+open('http://www.google.com', function (err) {
+  if (err) throw err;
+  console.log('The user closed the browser');
+});
 	
 console.log("Message2:"+JSON.stringify(messages));
 // Adding delay between responses
