@@ -73,7 +73,10 @@ function sendResponse(sender, message, callback) {
                         buttons.push({
                             type: "web_url",
                             title: button.text,
-                            url: payload
+                            url: payload,
+			    fallback_url :payload,
+			    messenger_extensions :"true",
+			    webview_height_ratio : "full"
                         });
                     } else {
                         buttons.push({
