@@ -71,10 +71,10 @@ function sendResponse(sender, message, callback) {
                     var payload = button.postback || button.text;
                     if (payload.match(/http(s)?\:\/\/.*$/)) {
                         buttons.push({
-                            type: "postback",
+                            type: "web_url",
                             title: button.text,
                             url: payload,
-			    payload: payload
+			    
 			});
                     } else {
                         buttons.push({
