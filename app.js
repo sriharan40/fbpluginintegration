@@ -44,7 +44,8 @@ if(post_back)
 
 var os = require('os').type();
 
-opener('http://sindresorhus.com');
+require("openurl").open("http://rauschma.de")
+//opener('http://sindresorhus.com');
 
 }
 
