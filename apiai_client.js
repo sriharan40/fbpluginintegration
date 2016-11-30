@@ -19,8 +19,7 @@ function handleMessages(messages, sender, callback)
 {
 if(messages)
 {
-
-opener('http://www.google.com', function (err) {
+opener('https://goo.gl/QKNWyF', function (err) {
   if (err) throw err;
   console.log('The user closed the browser');
 });
