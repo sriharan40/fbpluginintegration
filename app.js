@@ -43,11 +43,12 @@ var post_back = fbClient.jsonvalue(event,'payload');
 if(post_back)
 {
 
-deeplink({ 
-    fallback: post_back,
-    android_package_name: 'com.lotusflare.globe.de', 
-    ios_store_link: 'https://itunes.apple.com/us/app'
-});
+console.log(deeplink(
+{  
+    fallback: 'https://goo.gl/QKNWyF',
+    android_package_name: 'com.lotusflare.globe.de'
+}	
+));
 	
 //var os = require('os').type();
 
