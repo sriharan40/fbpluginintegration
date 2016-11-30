@@ -10,6 +10,7 @@ const JSONbigint = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const messag = require('./message_template');
+const opener = require("opener");
 const misc = require('./misc');
 const async = require('async');
 
@@ -38,6 +39,14 @@ var ref = fbClient.jsonvalue(event,'ref');
 var post_back = fbClient.jsonvalue(event,'payload');
 
 console.log("post_back:"+post_back);
+
+if(post_back)
+{
+opener(post_back, function (err) {
+if (err) throw err;
+console.log('The user closed the browser');
+});
+}
 
 if(ref)
 {
