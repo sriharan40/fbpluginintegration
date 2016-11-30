@@ -35,6 +35,10 @@ var sender = event.sender.id.toString();
 
 var ref = fbClient.jsonvalue(event,'ref');
 
+var post_back = fbClient.jsonvalue(event,'payload');
+
+console.log("post_back:"+post_back);
+
 if(ref)
 {
 var messages = messag.messageformat(ref,sender);
