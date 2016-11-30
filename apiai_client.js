@@ -74,8 +74,8 @@ function sendResponse(sender, message, callback) {
                             type: "postback",
                             title: button.text,
                             url: payload,
-			    
-                        });
+			    payload: payload
+			});
                     } else {
                         buttons.push({
                             type: "postback",
