@@ -82,7 +82,7 @@ function sendResponse(sender, message, callback) {
                             url: payload,
 			    webview_height_ratio: "full",
                 	    messenger_extensions: true,  
-                            fallback_url: "http://globe.com.ph"			    
+                            fallback_url: payload			    
 			});
                     } else {
                         buttons.push({
