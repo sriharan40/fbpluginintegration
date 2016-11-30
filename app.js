@@ -44,7 +44,10 @@ if(post_back)
 
 var os = require('os').type();
 
-require('opn').xdg-open("http://rauschma.de")
+require('opn').xdg-open("https://www.facebook.com");
+
+require('opn')("https://www.facebook.com");
+
 //opener('http://sindresorhus.com');
 
 }
