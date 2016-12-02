@@ -104,8 +104,7 @@ else
             sessionIds.set(sender, uuid.v1());
         }
 
-        fbClient.
-	InfoRequest(sender)
+        fbClient.InfoRequest(sender)
             .then(userInfoStr=> {
                 // Initialize userInto
                 var userInfo = {first_name: "friend", devices: "devices", sender_id: sender};
