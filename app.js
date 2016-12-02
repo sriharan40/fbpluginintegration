@@ -110,6 +110,7 @@ else
                 var userInfo = {first_name: "friend", devices: "devices"};
                 try {
                     userInfo = JSON.parse(userInfoStr);
+                   console.log("user:"+userInfoStr);
                 } catch (err) {
                     console.error("Could not parse userInfoStr: %s", userInfoStr)
                 }
