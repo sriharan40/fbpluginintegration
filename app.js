@@ -104,12 +104,14 @@ else
             sessionIds.set(sender, uuid.v1());
         }
 
-        fbClient.userInfoRequest(sender)
+        fbClient.
+	InfoRequest(sender)
             .then(userInfoStr=> {
                 // Initialize userInto
                 var userInfo = {first_name: "friend", devices: "devices", sender_id: sender};
                 try {
                     userInfo = JSON.parse(userInfoStr);
+		    console.log("Userinfo is:" + JSON.stringify(userInfo));
                 } catch (err) {
                     console.error("Could not parse userInfoStr: %s", userInfoStr)
                 }
