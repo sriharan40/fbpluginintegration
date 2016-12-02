@@ -122,7 +122,7 @@ else
                                 parameters: {
                                     facebook_user: userInfo.first_name,
 				    devices: userInfo.devices,
-				    sender_id: id
+				    sender_id: userInfo.id
                                 }
                             }
                         ]
