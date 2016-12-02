@@ -164,7 +164,7 @@ function userInfoRequest(userId) {
         request({
                 method: 'GET',
                 uri: "https://graph.facebook.com/v2.6/" + userId
-                + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + process.env.FB_PAGE_ACCESS_TOKEN
+                + "?fields=first_name,last_name,profile_pic,locale,timezone,gender,location&access_token=" + process.env.FB_PAGE_ACCESS_TOKEN
             },
             function (error, response) {
                 if (error) {
