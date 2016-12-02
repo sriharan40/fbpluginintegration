@@ -104,13 +104,12 @@ else
             sessionIds.set(sender, uuid.v1());
         }
 
-        fbClient.InfoRequest(sender)
+        fbClient.userInfoRequest(sender)
             .then(userInfoStr=> {
                 // Initialize userInto
                 var userInfo = {first_name: "friend", devices: "devices"};
                 try {
                     userInfo = JSON.parse(userInfoStr);
-		   //console.log("Userinfo is:" + JSON.stringify(userInfo));
                 } catch (err) {
                     console.error("Could not parse userInfoStr: %s", userInfoStr)
                 }
@@ -122,13 +121,11 @@ else
                                 name: "generic",
                                 parameters: {
                                     facebook_user: userInfo.first_name,
-				    devices: userInfo.devices
-				   
+				    devices: userInfo.devices	
                                 }
                             }
                         ]
                     });
-		console.log("Request to API.AI is:" + apiaiRequest);
 
                 // Handle response
                 apiaiRequest.on('response', response => {
