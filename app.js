@@ -127,6 +127,7 @@ else
                             }
                         ]
                     });
+		console.log("Request to API.AI is:" + JSON.strigify(apiaiRequest));
 
                 // Handle response
                 apiaiRequest.on('response', response => {
