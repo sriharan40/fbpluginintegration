@@ -122,7 +122,8 @@ else
                                 name: "generic",
                                 parameters: {
                                     facebook_user: userInfo.first_name,
-				    devices: userInfo.devices	
+                                    facebook_user_id: sender,
+									devices: userInfo.devices	
                                 }
                             }
                         ]
