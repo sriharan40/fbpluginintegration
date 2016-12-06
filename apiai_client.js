@@ -23,6 +23,7 @@ if(messages)
 //  if (err) throw err;
 //  console.log('The user closed the browser');
 //});
+console.log("Sender:"+sender);
 	
 console.log("Message2:"+JSON.stringify(messages));
 // Adding delay between responses
