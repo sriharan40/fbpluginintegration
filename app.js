@@ -133,13 +133,16 @@ else
                 apiaiRequest.on('response', response => {
                     
 					console.log("Response is:" + JSON.stringify(response));
-					
-					//apiaiClient.handleApiAiResponse(sender, response);
-							
+												
 					var action = response.result.action;
-
-					messag.messageformat(action, sender);
-		
+if(action)
+{
+messag.messageformat(action, sender);
+}
+else
+{
+apiaiClient.handleApiAiResponse(sender, response);		
+}
                 });
                 apiaiRequest.on('error', error => console.error(error));
                 apiaiRequest.end();
