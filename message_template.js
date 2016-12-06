@@ -6,7 +6,7 @@ const misc = require('./misc');
 const async = require('async');
 const mysql = require('mysql');
 
-function messageformat(action,sender)
+function messageformat(action,sender,response)
 {
 var arr1 = [];
 var messages12 = "";
@@ -76,7 +76,7 @@ apiaiClient.handleMessages(messages12,sender,"");
 	
 }								
 		
-if(action == "UserAcceptance")
+else if(action == "UserAcceptance")
 {
 var messages = [{
 	"type":0,
@@ -85,7 +85,7 @@ var messages = [{
 apiaiClient.handleMessages(messages,sender,"");	
 }
 
-if(action == "surprisetalk2")
+else if(action == "surprisetalk2")
 {
 var messages = [{
 	"type":0,
@@ -93,7 +93,11 @@ var messages = [{
 	}]
 apiaiClient.handleMessages(messages,sender,"");	
 }
-		
+
+else{
+apiaiClient.handleApiAiResponse(sender, response);	
+}
+	
 }	
 
 // Export module functions
