@@ -66,7 +66,6 @@ async.whilst(
 			}, 1000);
 		})
 	}, callback);
-}	    
     }
 }
 
