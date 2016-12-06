@@ -6,6 +6,23 @@ const misc = require('./misc');
 const async = require('async');
 const mysql = require('mysql');
 
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '312339728800370',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
 function messageformat(action,sender,response)
 {
 var arr1 = [];
@@ -13,7 +30,7 @@ var messages12 = "";
 	
 if(action == "showOfferOptionsToUser" || action == "surprisetalk")
 {
-
+FB.AppEvents.logEvent("Offer Ref from Deeplink");
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: process.env.db_user,
@@ -78,6 +95,7 @@ apiaiClient.handleMessages(messages12,sender,"");
 		
 else if(action == "UserAcceptance")
 {
+FB.AppEvents.logEvent("UserAcceptance");	
 var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
