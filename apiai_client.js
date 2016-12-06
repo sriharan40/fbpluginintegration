@@ -48,11 +48,25 @@ function handleApiAiResponse(sender, response, callback) {
     // Do we have a result?
     if (misc.isDefined(response.result)) {
 
-        //console.log("Response is:" + JSON.stringify(response));
+        console.log("Response is:" + JSON.stringify(response));
         
 		// Load messages
-        // var messages = response.result.fulfillment.messages;    
+        var messages = response.result.fulfillment.messages;    
 
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages.length - 1;
+	},
+	function (innerCallback) {
+		sendResponse(sender, messages[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, callback);
+}	    
     }
 }
 
