@@ -122,6 +122,7 @@ var speech = response;
 	"type":0,
 	"speech":speech
 	}]
+	console.log ("Speech to send back is :" + speech);
 	fbClient.sendSplitMessages(sender, speech);	
 //apiaiClient.handleApiAiResponse(sender, response);	
 }
