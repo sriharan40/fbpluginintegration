@@ -122,7 +122,7 @@ var speech = response;
 	"type":0,
 	"speech":speech
 	}]
-	apiaiClient.sendResponse(sender, messages, "") ;	
+	fbClient.sendSplitMessages(sender, speech);	
 //apiaiClient.handleApiAiResponse(sender, response);	
 }
 	
