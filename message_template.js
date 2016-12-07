@@ -24,6 +24,7 @@ const mysql = require('mysql');
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 */
+
 function messageformat(action,sender,response)
 {
 var arr1 = [];
@@ -91,13 +92,14 @@ async.whilst(
 		return i <= messages12.length - 1;
 	},
 	function (innerCallback) {
-		fbClient.sendCardMessage(sender, messages12[i], function () {
+		fbClient.sendResponse(sender, messages12[i], function () {
 			setTimeout(function () {
 				i++;
 				innerCallback();
 			}, 1000);
 		})
 	}, "");
+
 //fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
 //apiaiClient.handleMessages(messages12,sender,"");
 	  
@@ -167,7 +169,7 @@ async.whilst(
 		return i <= messages12.length - 1;
 	},
 	function (innerCallback) {
-		fbClient.sendCardMessage(sender, messages12[i], function () {
+		fbClient.sendResponse(sender, messages12[i], function () {
 			setTimeout(function () {
 				i++;
 				innerCallback();
