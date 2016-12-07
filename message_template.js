@@ -6,12 +6,7 @@ const misc = require('./misc');
 const async = require('async');
 const mysql = require('mysql');
 
-if(typeof window == undefined)
-{
-var window
-}
-
-window.fbAsyncInit = function() {
+/*global.window.fbAsyncInit = function() {
     FB.init({
       appId      : '312339728800370',
       xfbml      : true,
@@ -27,7 +22,7 @@ window.fbAsyncInit = function() {
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-
+*/
 function messageformat(action,sender,response)
 {
 var arr1 = [];
@@ -35,7 +30,7 @@ var messages12 = "";
 	
 if(action == "showOfferOptionsToUser" || action == "surprisetalk")
 {
-FB.AppEvents.logEvent("Offer Ref from Deeplink");
+/* FB.AppEvents.logEvent("Offer Ref from Deeplink"); */
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: process.env.db_user,
@@ -100,7 +95,7 @@ apiaiClient.handleMessages(messages12,sender,"");
 		
 else if(action == "UserAcceptance")
 {
-FB.AppEvents.logEvent("UserAcceptance");	
+/* FB.AppEvents.logEvent("UserAcceptance"); */	
 var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
