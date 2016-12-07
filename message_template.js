@@ -32,6 +32,7 @@ var messages12 = "";
 switch (action) {
 	
 case "showOfferOptionsToUser":
+
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: process.env.db_user,
@@ -84,7 +85,20 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 
- fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages12.length - 1;
+	},
+	function (innerCallback) {
+		fbClient.sendCardMessage(sender, messages12[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, callback);
+//fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
 //apiaiClient.handleMessages(messages12,sender,"");
 	  
 });  
@@ -102,7 +116,6 @@ var db_config = {
     database: 'heroku_a0067bd7c868fc0'
 };
 
-
 var connection;
 
     console.log('1. connecting to db:');
@@ -147,7 +160,21 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 
- fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
+var i = 0;
+async.whilst(
+	function () {
+		return i <= messages12.length - 1;
+	},
+	function (innerCallback) {
+		fbClient.sendCardMessage(sender, messages12[i], function () {
+			setTimeout(function () {
+				i++;
+				innerCallback();
+			}, 1000);
+		})
+	}, callback);
+	
+//fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
 //apiaiClient.handleMessages(messages12,sender,"");
 	  
 });  
