@@ -212,6 +212,11 @@ apiaiClient.sendResponse(sender, messages[0], "");
 
 break;
 
+	case "showOptionsToUser":
+	//messages[0].type = 2;
+	apiaiClient.sendResponse(sender, messages[0], "");
+	break;
+
 default:
 
 //var speech = response;
