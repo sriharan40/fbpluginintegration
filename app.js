@@ -64,7 +64,7 @@ if(messages)
             sessionIds.set(sender, uuid.v1());
         }
 
-        console.log("Text", text);
+       // console.log("Text", text);
 
         let apiaiRequest = apiAiService.textRequest(text,
             {
@@ -76,7 +76,7 @@ if(messages)
                 let responseText = response.result.fulfillment.speech;
                 let responseData = response.result.fulfillment.data;
                 let action = response.result.action;
-
+		console.log("Action:"+action);	
                 if (isDefined(responseData) && isDefined(responseData.facebook)) {
                     if (!Array.isArray(responseData.facebook)) {
                         try {
@@ -255,7 +255,6 @@ app.post('/webhook/', (req, res) => {
                     messaging_events.forEach((event) => {
                         if (event.message && !event.message.is_echo ||
                             event.postback && event.postback.payload || event.referral) {
-				console.log("Event:"+event);    
 				processEvent(event);
                         }
                     });
