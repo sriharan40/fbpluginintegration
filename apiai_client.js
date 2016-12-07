@@ -53,7 +53,8 @@ function handleApiAiResponse(sender, response, callback) {
         
 		// Load messages
         var messages = response.result.fulfillment.messages;    
-
+	if(messages)
+	{
 var i = 0;
 async.whilst(
 	function () {
@@ -67,6 +68,8 @@ async.whilst(
 			}, 1000);
 		})
 	}, callback);
+    }
+	    
     }
 }
 
