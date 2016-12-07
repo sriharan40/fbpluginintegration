@@ -84,7 +84,7 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 
-apiaiClient.sendResponse(sender, messages12, "") ;
+ fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
 //apiaiClient.handleMessages(messages12,sender,"");
 	  
 });  
