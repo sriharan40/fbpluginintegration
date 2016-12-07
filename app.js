@@ -77,6 +77,8 @@ if(messages)
                 let responseData = response.result.fulfillment.data;
                 let action = response.result.action;
 		console.log("Action:"+action);	
+		console.log("ResponseText:"+responseText);	
+		console.log("ResponseData:"+responseData);	
 		apiaiClient.handleApiAiResponse(sender, response, "");				    
                 if (isDefined(responseData) && isDefined(responseData.facebook)) {
                     if (!Array.isArray(responseData.facebook)) {
