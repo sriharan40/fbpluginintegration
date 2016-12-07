@@ -1,6 +1,7 @@
 /* jshint node: true */
 'use strict';
 
+const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const misc = require('./misc');
 const async = require('async');
@@ -83,7 +84,8 @@ var messages12 = [{
 
 console.log("Message1:"+JSON.stringify(messages12));
 
-apiaiClient.handleMessages(messages12,sender,"");
+apiaiClient.sendResponse(sender, messages12, "") ;
+//apiaiClient.handleMessages(messages12,sender,"");
 	  
 });  
 
