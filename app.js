@@ -18,9 +18,38 @@ const apiAiService = apiai(APIAI_ACCESS_TOKEN, {language: APIAI_LANG, requestSou
 const sessionIds = new Map();
 
 function processEvent(event) {
+    
     var sender = event.sender.id.toString();
 
-    if ((event.message && event.message.text) || (event.postback && event.postback.payload)) {
+    var ref = fbClient.jsonvalue(event,'ref');
+
+if(ref)
+{
+var messages = messag.messageformat(ref,sender,event);
+
+var callback = "";
+	
+if(messages)
+{		
+        // Adding delay between responses
+        var i = 0;
+        async.whilst(
+            function () {
+                return i <= messages.length - 1;
+            },
+            function (innerCallback) {
+                apiaiClient.sendResponse(sender, messages[i], function () {
+                    setTimeout(function () {
+                        i++;
+                        innerCallback();
+                    }, 1000);
+                })
+            }, callback);
+}			
+
+}
+    
+    else if ((event.message && event.message.text) || (event.postback && event.postback.payload)) {
         var text = event.message ? event.message.text : event.postback.payload;
         // Handle a text message from this sender
 
