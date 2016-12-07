@@ -64,7 +64,7 @@ if(messages)
             sessionIds.set(sender, uuid.v1());
         }
 
-       // console.log("Text", text);
+        console.log("Text", text);
 
         let apiaiRequest = apiAiService.textRequest(text,
             {
