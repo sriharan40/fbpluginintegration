@@ -195,7 +195,7 @@ var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
 	}]	
-apiaiClient.sendResponse(sender, messages, "") ;
+apiaiClient.sendResponse(sender, messages, "");
 //apiaiClient.handleMessages(messages,sender,"");	
 break;
 
@@ -205,7 +205,8 @@ var messages = [{
 	"type":0,
 	"speech":"Welcome to bot chat."
 	}]
-apiaiClient.handleMessages(messages,sender,"");	
+apiaiClient.sendResponse(sender, messages, "");
+//apiaiClient.handleMessages(messages,sender,"");	
 
 break;
 
