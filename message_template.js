@@ -213,8 +213,9 @@ apiaiClient.sendResponse(sender, messages[0], "");
 break;
 
 case "showOptionsToUser":
-//messages[0].type = 2;
-apiaiClient.sendResponse(sender, messages[0], "");
+//messages[0].type = 
+apiaiClient.handleApiAiResponse(sender, response, "")
+//apiaiClient.sendResponse(sender, messages[0], "");
 console.log ("Options shown to user");
 break;
 
