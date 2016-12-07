@@ -197,7 +197,7 @@ var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
 	}]	
-apiaiClient.sendResponse(sender, messages, "");
+apiaiClient.sendResponse(sender, messages[0], "");
 //apiaiClient.handleMessages(messages,sender,"");	
 break;
 
@@ -207,7 +207,7 @@ var messages = [{
 	"type":0,
 	"speech":"Welcome to bot chat."
 	}]
-apiaiClient.sendResponse(sender, messages, "");
+apiaiClient.sendResponse(sender, messages[0], "");
 //apiaiClient.handleMessages(messages,sender,"");	
 
 break;
@@ -217,13 +217,13 @@ default:
 var speech = response;
 	var messages = [{
 	"type":0,
-	"speech":speech
+	"speech":response.result.fulfillment.messages
 	}]
 	console.log ("Speech to send back is :" + JSON.stringify(speech));
 
-	apiaiClient.sendResponse(sender, messages, "");
+	apiaiClient.sendResponse(sender, messages[0], "");
 
-//fbClient.sendSplitMessages(sender, response.result.fulfillment.messages);	
+//fbClient.sendSplitMessages(sender, response.result.fulfillment.messages);
 //apiaiClient.handleApiAiResponse(sender, response);	
 
 break;
