@@ -97,7 +97,7 @@ async.whilst(
 				innerCallback();
 			}, 1000);
 		})
-	}, callback);
+	}, "");
 //fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
 //apiaiClient.handleMessages(messages12,sender,"");
 	  
@@ -106,6 +106,7 @@ async.whilst(
 }
 
 });
+
 break;
 
 case "surprisetalk":
@@ -172,7 +173,7 @@ async.whilst(
 				innerCallback();
 			}, 1000);
 		})
-	}, callback);
+	}, "");
 	
 //fbClient.sendCardMessage(sender, messages12.title, messages12.subtitle, messages12.imageUrl, messages12.buttons);
 //apiaiClient.handleMessages(messages12,sender,"");
@@ -182,6 +183,7 @@ async.whilst(
 }
 
 });
+
 break;
 
 }
