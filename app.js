@@ -136,8 +136,9 @@ else
 												
 					//var action = response.result.action;
 
-//messag.messageformat(action, sender, response);
-//apiaiClient.handleApiAiResponse(sender, response);		
+					//messag.messageformat(action, sender, response);
+					
+				apiaiClient.handleApiAiResponse(sender, response, "");		
                 });
                 apiaiRequest.on('error', error => console.error(error));
                 apiaiRequest.end();
