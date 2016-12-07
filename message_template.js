@@ -113,7 +113,14 @@ apiaiClient.handleMessages(messages,sender,"");
 }
 
 else{
-apiaiClient.handleApiAiResponse(sender, response);	
+
+var speech = response;
+	var messages = [{
+	"type":0,
+	"speech":speech
+	}]
+	apiaiClient.handleMessages(messages,sender,"");	
+//apiaiClient.handleApiAiResponse(sender, response);	
 }
 	
 }	
