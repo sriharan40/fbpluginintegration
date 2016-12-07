@@ -30,6 +30,8 @@ function messageformat(action,sender,response)
 var arr1 = [];
 var messages12 = "";
 
+console.log("Actions:"+action);
+
 switch (action) {
 	
 case "showOfferOptionsToUser":
@@ -218,8 +220,13 @@ var speech = response;
 	"speech":speech
 	}]
 	console.log ("Speech to send back is :" + JSON.stringify(speech));
-	fbClient.sendSplitMessages(sender, response.result.fulfillment.messages);	
+
+	apiaiClient.sendResponse(sender, messages, "");
+
+//fbClient.sendSplitMessages(sender, response.result.fulfillment.messages);	
 //apiaiClient.handleApiAiResponse(sender, response);	
+
+break;
 
 }
 	
