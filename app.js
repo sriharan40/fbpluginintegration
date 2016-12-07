@@ -9,6 +9,7 @@ const JSONbig = require('json-bigint');
 const fbClient = require('./fb_client');
 const apiaiClient = require('./apiai_client');
 const messag = require('./message_template');
+const deeplink = require('node-deeplink');
 const misc = require('./misc');
 const async = require('async');
 
@@ -26,6 +27,8 @@ function processEvent(event) {
     var sender = event.sender.id.toString();
 
     var ref = fbClient.jsonvalue(event,'ref');
+
+    console.log("Ref:"+ref);	
 
 if(ref)
 {
@@ -243,7 +246,6 @@ app.get('/webhook/', (req, res) => {
 app.post('/webhook/', (req, res) => {
     try {
         var data = JSONbig.parse(req.body);
-
         if (data.entry) {
             let entries = data.entry;
             entries.forEach((entry) => {
