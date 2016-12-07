@@ -8,7 +8,7 @@ const mysql = require('mysql');
 
 if(typeof window == undefined)
 {
-global.window
+var window
 }
 
 window.fbAsyncInit = function() {
