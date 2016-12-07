@@ -123,7 +123,7 @@ var speech = response;
 	"speech":speech
 	}]
 	console.log ("Speech to send back is :" + JSON.stringify(speech));
-	fbClient.sendSplitMessages(sender, JSON.stringify(speech));	
+	fbClient.sendSplitMessages(sender, response.result.fulfillment.messages);	
 //apiaiClient.handleApiAiResponse(sender, response);	
 }
 	
