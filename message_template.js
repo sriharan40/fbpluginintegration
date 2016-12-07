@@ -6,7 +6,12 @@ const misc = require('./misc');
 const async = require('async');
 const mysql = require('mysql');
 
-global.window.fbAsyncInit = function() {
+if(typeof window == undefined)
+{
+global.window
+}
+
+window.fbAsyncInit = function() {
     FB.init({
       appId      : '312339728800370',
       xfbml      : true,
