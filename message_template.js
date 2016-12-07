@@ -214,7 +214,7 @@ break;
 
 case "showOptionsToUser":
 //messages[0].type = 2;
-//apiaiClient.sendResponse(sender, messages[0], "");
+apiaiClient.sendResponse(sender, messages[0], "");
 console.log ("Options shown to user");
 break;
 
