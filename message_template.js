@@ -92,7 +92,7 @@ async.whilst(
 		return i <= messages12.length - 1;
 	},
 	function (innerCallback) {
-		fbClient.sendResponse(sender, messages12[i], function () {
+		apiaiClient.sendResponse(sender, messages12[i], function () {
 			setTimeout(function () {
 				i++;
 				innerCallback();
@@ -169,7 +169,7 @@ async.whilst(
 		return i <= messages12.length - 1;
 	},
 	function (innerCallback) {
-		fbClient.sendResponse(sender, messages12[i], function () {
+		apiaiClient.sendResponse(sender, messages12[i], function () {
 			setTimeout(function () {
 				i++;
 				innerCallback();
