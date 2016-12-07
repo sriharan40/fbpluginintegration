@@ -188,10 +188,8 @@ async.whilst(
 
 break;
 
-}
+case "UserAcceptance":
 
-if(action == "UserAcceptance")
-{
 /* FB.AppEvents.logEvent("UserAcceptance"); */	
 var messages = [{
 	"type":0,
@@ -199,18 +197,19 @@ var messages = [{
 	}]	
 apiaiClient.sendResponse(sender, messages, "") ;
 //apiaiClient.handleMessages(messages,sender,"");	
-}
+break;
 
-else if(action == "surprisetalk2")
-{
+case "surprisetalk2":
+
 var messages = [{
 	"type":0,
 	"speech":"Welcome to bot chat."
 	}]
 apiaiClient.handleMessages(messages,sender,"");	
-}
 
-else if (action == "" || action == undefined) {
+break;
+
+default:
 
 var speech = response;
 	var messages = [{
@@ -220,6 +219,7 @@ var speech = response;
 	console.log ("Speech to send back is :" + JSON.stringify(speech));
 	fbClient.sendSplitMessages(sender, response.result.fulfillment.messages);	
 //apiaiClient.handleApiAiResponse(sender, response);	
+
 }
 	
 }	
