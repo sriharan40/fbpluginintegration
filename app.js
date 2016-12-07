@@ -134,9 +134,9 @@ else
                     
 					console.log("Response is:" + JSON.stringify(response));
 												
-					var action = response.result.action;
+					//var action = response.result.action;
 
-messag.messageformat(action, sender, response);
+//messag.messageformat(action, sender, response);
 //apiaiClient.handleApiAiResponse(sender, response);		
                 });
                 apiaiRequest.on('error', error => console.error(error));
