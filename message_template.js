@@ -101,8 +101,9 @@ else if(action == "UserAcceptance")
 var messages = [{
 	"type":0,
 	"speech":"Thanks for your response."
-	}]			
-apiaiClient.handleMessages(messages,sender,"");	
+	}]	
+apiaiClient.sendResponse(sender, messages, "") ;
+//apiaiClient.handleMessages(messages,sender,"");	
 }
 
 else if(action == "surprisetalk2")
@@ -121,7 +122,7 @@ var speech = response;
 	"type":0,
 	"speech":speech
 	}]
-	apiaiClient.handleMessages(messages,sender,"");	
+	apiaiClient.sendResponse(sender, messages, "") ;	
 //apiaiClient.handleApiAiResponse(sender, response);	
 }
 	
