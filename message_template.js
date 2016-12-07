@@ -115,7 +115,7 @@ var messages = [{
 apiaiClient.handleMessages(messages,sender,"");	
 }
 
-elseif (action =="" || action == undefined) {
+else if (action == "" || action == undefined) {
 
 var speech = response;
 	var messages = [{
