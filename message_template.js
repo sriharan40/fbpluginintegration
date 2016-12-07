@@ -214,12 +214,12 @@ break;
 
 default:
 
-var speech = response;
+//var speech = response;
 	var messages = [{
 	"type":0,
-	"speech":response.result.fulfillment.messages
+	"speech":response.result.fulfillment.messages.speech
 	}]
-	console.log ("Speech to send back is :" + JSON.stringify(speech));
+	console.log ("Speech to send back is :" + JSON.stringify(response));
 
 	apiaiClient.sendResponse(sender, messages[0], "");
 
