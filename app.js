@@ -79,7 +79,7 @@ if(messages)
 		console.log("Action:"+action);	
 		console.log("ResponseText:"+responseText);	
 		console.log("ResponseData:"+responseData);	
-		//apiaiClient.handleApiAiResponse(sender, response, "");				    
+				    
                 if (isDefined(responseData) && isDefined(responseData.facebook)) {
                     if (!Array.isArray(responseData.facebook)) {
                         try {
@@ -111,7 +111,8 @@ if(messages)
                     var splittedText = splitResponse(responseText);
 
                     async.eachSeries(splittedText, (textPart, callback) => {
-                       sendFBMessage(sender, {text: textPart}, callback);
+		            apiaiClient.handleApiAiResponse(sender, response, callback);
+			    //sendFBMessage(sender, {text: textPart}, callback);
                     });
                 }
 
