@@ -64,13 +64,38 @@ if(messages)
             sessionIds.set(sender, uuid.v1());
         }
 
-        console.log("Text", text);
+        //console.log("Text", text);
 
         let apiaiRequest = apiAiService.textRequest(text,
             {
                 sessionId: sessionIds.get(sender)
             });
 
+        fbClient.userInfoRequest(sender)
+            .then(userInfoStr=> {
+                // Initialize userInto
+                var userInfo = {first_name: "friend", devices: "devices"};
+                try {
+                    userInfo = JSON.parse(userInfoStr);
+                   console.log("user:"+userInfoStr);
+                } catch (err) {
+                    console.error("Could not parse userInfoStr: %s", userInfoStr)
+                }
+                var apiaiRequest = apiAiService.textRequest(text,
+                    {
+                        sessionId: sessionIds.get(sender),
+                        contexts: [
+                            {
+                                name: "generic",
+                                parameters: {
+                                    facebook_user: userInfo.first_name,
+                                    facebook_user_id: sender,
+				    devices: userInfo.devices	
+                                }
+                            }
+                        ]
+                    });
+		
         apiaiRequest.on('response', (response) => {
             if (isDefined(response.result)) {
                 let responseText = response.result.fulfillment.speech;
@@ -116,7 +141,7 @@ if(messages)
                     });
                 }
 else {
-		            apiaiClient.handleApiAiResponse(sender, response, callback);	
+apiaiClient.handleApiAiResponse(sender, response, callback);	
 }
             }
         });
