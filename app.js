@@ -115,7 +115,9 @@ if(messages)
 			    //sendFBMessage(sender, {text: textPart}, callback);
                     });
                 }
-
+else {
+		            apiaiClient.handleApiAiResponse(sender, response, callback);	
+}
             }
         });
 
