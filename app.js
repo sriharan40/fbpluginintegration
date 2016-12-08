@@ -109,23 +109,23 @@ if(messages)
                     if (!Array.isArray(responseData.facebook)) {
                         try {
                             console.log('Response as formatted message');
-                            sendFBMessage(sender, responseData.facebook);
+                            // sendFBMessage(sender, responseData.facebook);
                         } catch (err) {
-                            sendFBMessage(sender, {text: err.message});
+                            // sendFBMessage(sender, {text: err.message});
                         }
                     } else {
                         async.eachSeries(responseData.facebook, (facebookMessage, callback) => {
                             try {
                                 if (facebookMessage.sender_action) {
                                     console.log('Response as sender action');
-                                    sendFBSenderAction(sender, facebookMessage.sender_action, callback);
+                                   // sendFBSenderAction(sender, facebookMessage.sender_action, callback);
                                 }
                                 else {
                                     console.log('Response as formatted message');
-                                    sendFBMessage(sender, facebookMessage, callback);
+                                   // sendFBMessage(sender, facebookMessage, callback);
                                 }
                             } catch (err) {
-                                sendFBMessage(sender, {text: err.message}, callback);
+                                // sendFBMessage(sender, {text: err.message}, callback);
                             }
                         });
                     }
