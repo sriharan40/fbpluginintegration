@@ -95,7 +95,7 @@ if(messages)
                             }
                         ]
                     });
-		
+	    
         apiaiRequest.on('response', (response) => {
             if (isDefined(response.result)) {
                 let responseText = response.result.fulfillment.speech;
@@ -148,6 +148,9 @@ apiaiClient.handleApiAiResponse(sender, response, callback);
 
         apiaiRequest.on('error', (error) => console.error(error));
         apiaiRequest.end();
+            }).catch(err => {
+            console.error(err);
+        });  
     }
 }
 
