@@ -308,6 +308,8 @@ app.post('/webhook/', (req, res) => {
 
 });
 
+req.end();
+	
 app.listen(REST_PORT, () => {
     console.log('Rest service ready on port ' + REST_PORT);
 });
