@@ -201,6 +201,17 @@ apiaiClient.sendResponse(sender, messages[0], "");
 //apiaiClient.handleMessages(messages,sender,"");	
 break;
 
+case "myparam":
+
+/* FB.AppEvents.logEvent("UserAcceptance"); */	
+var messages = [{
+	"type":0,
+	"speech":"Your payment was submitted successfully."
+	}]	
+apiaiClient.sendResponse(sender, messages[0], "");
+//apiaiClient.handleMessages(messages,sender,"");	
+break;
+		
 case "surprisetalk2":
 
 var messages = [{
