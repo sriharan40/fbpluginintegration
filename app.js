@@ -66,10 +66,10 @@ if(messages)
 
         //console.log("Text", text);
 
-        let apiaiRequest = apiAiService.textRequest(text,
-            {
-                sessionId: sessionIds.get(sender)
-            });
+        //let apiaiRequest = apiAiService.textRequest(text,
+         //   {
+         //       sessionId: sessionIds.get(sender)
+          //  });
 
         fbClient.userInfoRequest(sender)
             .then(userInfoStr=> {
@@ -144,6 +144,7 @@ else {
 apiaiClient.handleApiAiResponse(sender, response, callback);	
 }
             }
+        apiaiRequest.end();		
         });
 
         apiaiRequest.on('error', (error) => console.error(error));
