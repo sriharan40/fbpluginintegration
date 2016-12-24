@@ -128,7 +128,6 @@ if(messages)
                                 // sendFBMessage(sender, {text: err.message}, callback);
                             }
                         });
-apiaiRequest.end();				    
                     }
                 } else if (isDefined(responseText)) {
                     console.log('Response as text message');
@@ -138,9 +137,9 @@ apiaiRequest.end();
 
                     async.eachSeries(splittedText, (textPart, callback) => {
 		            apiaiClient.handleApiAiResponse(sender, response, callback);
+			    apiaiRequest.end();							    
 			    //sendFBMessage(sender, {text: textPart}, callback);
                     });
-apiaiRequest.end();				
                 }
 else {
 apiaiClient.handleApiAiResponse(sender, response, callback);	
