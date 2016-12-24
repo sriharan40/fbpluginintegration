@@ -142,9 +142,10 @@ if(messages)
                 }
 else {
 apiaiClient.handleApiAiResponse(sender, response, callback);	
+apiaiRequest.end();	
 }
             }
-        apiaiRequest.end();		
+        		
         });
 
         apiaiRequest.on('error', (error) => console.error(error));
@@ -307,7 +308,7 @@ app.post('/webhook/', (req, res) => {
             error: err
         });
     }
-//req.end();
+req.end();
 
 });
 	
