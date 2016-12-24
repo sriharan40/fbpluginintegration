@@ -143,7 +143,7 @@ if(messages)
                 }
 else {
 apiaiClient.handleApiAiResponse(sender, response, callback);	
-//apiaiRequest.end();	
+apiaiRequest.end();	
 }
             }
         		
