@@ -275,6 +275,7 @@ app.get('/webhook/', (req, res) => {
     } else {
         res.send('Error, wrong validation token');
     }
+req.end();
 });
 
 app.post('/webhook/', (req, res) => {
