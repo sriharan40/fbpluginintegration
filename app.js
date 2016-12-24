@@ -137,7 +137,6 @@ if(messages)
 
                     async.eachSeries(splittedText, (textPart, callback) => {
 		            apiaiClient.handleApiAiResponse(sender, response, callback);
-			    apiaiRequest.end();							    
 			    //sendFBMessage(sender, {text: textPart}, callback);
                     });
                 }
