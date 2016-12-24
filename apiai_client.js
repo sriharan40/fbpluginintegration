@@ -98,7 +98,7 @@ function sendResponse(sender, message, callback) {
                             title: button.text,
                             url: payload,
 			    webview_height_ratio: "compact",
-                	    messenger_extensions: "true" 
+                	    //messenger_extensions: "true" 
                             //show_fallback_url: "false"			    
 			});
                     } else {
