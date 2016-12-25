@@ -201,6 +201,22 @@ apiaiClient.sendResponse(sender, messages[0], "");
 //apiaiClient.handleMessages(messages,sender,"");	
 break;
 
+// case for recharge amount 
+case "rechargeAction" :
+
+// Generate the speech 
+// if total amount is < requested, say, you do not have enough amount. 
+
+// If recharge amount < total available, show remaining available.
+var messages = [{
+	"type":0,
+	"speech":"Your payment was submitted successfully."
+	}]	
+// Send message to apiaiclient.
+apiaiClient.sendResponse(sender, messages[0], "");
+break;
+		
+// case for recharge ends
 case "myparam":
 
 /* FB.AppEvents.logEvent("UserAcceptance"); */	
