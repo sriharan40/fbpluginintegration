@@ -96,9 +96,9 @@ function sendResponse(sender, message, callback) {
                         buttons.push({
                             type: "web_url",
                             title: button.text,
-                            url: payload,
-			    webview_height_ratio: "compact",
-                	    messenger_extensions: "true"
+                            url: payload
+			    //webview_height_ratio: "compact"
+                	    //messenger_extensions: "true"
                             //fallback_url: "false"			    
 			});
                     } else {
