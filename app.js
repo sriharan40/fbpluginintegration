@@ -74,7 +74,7 @@ if(messages)
         fbClient.userInfoRequest(sender)
             .then(userInfoStr=> {
                 // Initialize userInto
-		var usernameFb 'Not Found';
+		var usernameFb = 'Not Found';
                 var userInfo = {first_name: "friend", devices: "devices"};
                 try {
                     userInfo = JSON.parse(userInfoStr);
