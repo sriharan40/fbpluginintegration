@@ -74,16 +74,18 @@ if(messages)
         fbClient.userInfoRequest(sender)
             .then(userInfoStr=> {
                 // Initialize userInto
+		var usernameFb 'Not Found';
                 var userInfo = {first_name: "friend", devices: "devices"};
                 try {
                     userInfo = JSON.parse(userInfoStr);
-                   console.log("user:"+userInfoStr);
+                    usernameFb = userInfo.first_name + " " + userInfo.last_name;
+		    console.log("user:"+ usernameFb);
                 } catch (err) {
                     console.error("Could not parse userInfoStr: %s", userInfoStr)
                 }
                 var apiaiRequest = apiAiService.textRequest(text,
                     {
-                        var usernameFb = userInfo.first_name + " " + userInfo.last_name
+                        
 			sessionId: sessionIds.get(sender),
                         contexts: [
                             {
