@@ -83,12 +83,13 @@ if(messages)
                 }
                 var apiaiRequest = apiAiService.textRequest(text,
                     {
-                        sessionId: sessionIds.get(sender),
+                        //var usernameFb = userInfo.first_name + userInfo.last_name
+			sessionId: sessionIds.get(sender),
                         contexts: [
                             {
                                 name: "generic",
                                 parameters: {
-                                    facebook_user: userInfo.first_name,
+                                    facebook_user: userInfo.name,
                                     facebook_user_id: sender,
 				    devices: userInfo.devices	
                                 }
