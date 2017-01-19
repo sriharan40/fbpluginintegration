@@ -106,12 +106,13 @@ function sendTextMessage(recipientId, messageText, callback) {
  * @param recipientId The ID of the user messaging with Maia.
  * @param question A text question.
  * @param answers An array with the quick replies.
+ * @param type content type
  */
-function sendQuickReplyQuestion(recipientId, question, answers) {
-
+function sendQuickReplyQuestion(recipientId, question, answers, type) {
+    if (type == "") type = "text";
     var quick_replies = answers.map((x) => {
         return {
-            "content_type": "text",
+            "content_type": type,
             "title": x.text,
             "payload": x.payload
         };
