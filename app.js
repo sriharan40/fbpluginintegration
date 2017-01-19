@@ -85,7 +85,7 @@ if(messages)
                 }
                 var apiaiRequest = apiAiService.textRequest(text,
                     {
-                        
+                        console.log ("Device is" + userInfo.devices + ": Location is" + userInfo.location");
 			sessionId: sessionIds.get(sender),
                         contexts: [
                             {
@@ -93,7 +93,8 @@ if(messages)
                                 parameters: {
                                     facebook_user: usernameFb,
                                     facebook_user_id: sender,
-				    devices: userInfo.devices	
+				    devices: userInfo.devices
+			            
                                 }
                             }
                         ]
