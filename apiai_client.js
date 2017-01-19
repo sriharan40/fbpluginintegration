@@ -123,7 +123,7 @@ function sendResponse(sender, message, callback) {
                     innerCallback();
                 });
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
-                fbClient.sendQuickReplyQuestion(sender, message.title, questions, message.quick_replies.content_type);
+                fbClient.sendQuickReplyQuestion(sender, message.title, questions);
             }
             break;
         case 3: // image
