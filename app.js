@@ -83,7 +83,7 @@ if(messages)
                 } catch (err) {
                     console.error("Could not parse userInfoStr: %s", userInfoStr)
                 }
-		console.log ("Device is" + userInfo.devices + ": Location is" + userInfo.location");
+		console.log ("Device is:" + userInfo.devices + ": Location is" + userInfo.location);
                 var apiaiRequest = apiAiService.textRequest(text,
                     {
                         
