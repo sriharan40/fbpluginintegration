@@ -108,11 +108,11 @@ function sendTextMessage(recipientId, messageText, callback) {
  * @param answers An array with the quick replies.
  * @param type content type
  */
-function sendQuickReplyQuestion(recipientId, question, answers, type) {
-    if (type == "") type = "text";
+function sendQuickReplyQuestion(recipientId, question, answers) {
+   // if (type == "") type = "text";
     var quick_replies = answers.map((x) => {
         return {
-            "content_type": type,
+            "content_type": "text",
             "title": x.text,
             "payload": x.payload
         };
