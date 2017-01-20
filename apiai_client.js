@@ -122,6 +122,7 @@ function sendResponse(sender, message, callback) {
                     questions.push({text: reply, payload: reply});
                     innerCallback();
                 });
+	    
 		//console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
                 fbClient.sendQuickReplyQuestion(sender, message.title, questions);
             }
@@ -139,8 +140,10 @@ function sendResponse(sender, message, callback) {
                     questions.push({text: reply, payload: reply});
                     innerCallback();
                 });
+		    
 		console.log ("questions are:" + questions);
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
+	    }
             break;
     }
     if (callback) {
