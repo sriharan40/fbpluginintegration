@@ -136,8 +136,8 @@ function sendResponse(sender, message, callback) {
 		    
 	 case 4: // Himant added quickreply with location
            	    
-		var messageQ = JSON.parse(message);
-		console.log ("text:" + messageQ.payload.facebook.text);
+		//var messageQ = JSON.parse(message);
+		console.log ("text:" + message.payload.facebook.text);
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
 		// {"payload":{"facebook":{"text":"Please share your location:","quick_replies":[{"content_type":"location"}]}},"type":4}
 		    
