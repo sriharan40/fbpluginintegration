@@ -131,6 +131,16 @@ function sendResponse(sender, message, callback) {
                 fbClient.sendImageMessage(sender, message.imageUrl);
             }
             break;
+		    
+	 case 4: // Himant added quickreply with location
+            /*if (misc.isDefined(message.replies)) {
+                var questions = [];
+                async.eachSeries(message.replies, (reply, innerCallback) => {
+                    questions.push({text: reply, payload: reply});
+                    innerCallback();
+                });*/
+		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
+            break;
     }
     if (callback) {
         callback();
