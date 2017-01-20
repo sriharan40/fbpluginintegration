@@ -139,7 +139,7 @@ function sendResponse(sender, message, callback) {
                     questions.push({text: reply, payload: reply});
                     innerCallback();
                 });
-		console.log ("questions are:" + JSON.stringify(questions));
+		console.log ("questions are:" + questions);
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
             break;
     }
