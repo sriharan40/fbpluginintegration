@@ -83,6 +83,7 @@ async.whilst(
 
 function sendResponse(sender, message, callback) {
 
+	console.log ("Message type is:" + message.type);
     switch (message.type) {
         case 0: // message text
             fbClient.sendSplitMessages(sender, message.speech);
