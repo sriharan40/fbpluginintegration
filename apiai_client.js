@@ -139,7 +139,7 @@ function sendResponse(sender, message, callback) {
 		//var messageQ = JSON.parse(message);
 		console.log ("text:" + message.payload.facebook.text);
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
-		fbClient.sendQuickReplyLocationQuestion(sender, message.text);
+		//fbClient.sendQuickReplyLocationQuestion(sender, message.text);
 		// {"payload":{"facebook":{"text":"Please share your location:","quick_replies":[{"content_type":"location"}]}},"type":4}
 		    
 	    
