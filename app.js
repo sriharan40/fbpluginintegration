@@ -6,11 +6,6 @@ const bodyParser = require('body-parser');
 const uuid = require('node-uuid');
 const request = require('request');
 const JSONbig = require('json-bigint');
-const fbClient = require('./fb_client');
-const apiaiClient = require('./apiai_client');
-const messag = require('./message_template');
-const deeplink = require('node-deeplink');
-const misc = require('./misc');
 const async = require('async');
 
 const REST_PORT = (process.env.PORT || 5000);
@@ -23,114 +18,54 @@ const apiAiService = apiai(APIAI_ACCESS_TOKEN, {language: APIAI_LANG, requestSou
 const sessionIds = new Map();
 
 function processEvent(event) {
-    
     var sender = event.sender.id.toString();
 
-    var ref = fbClient.jsonvalue(event,'ref');
-
-    console.log("Ref:"+ref);	
-
-if(ref)
-{
-var messages = messag.messageformat(ref,sender,event);
-
-var callback = "";
-	
-if(messages)
-{		
-        // Adding delay between responses
-        var i = 0;
-        async.whilst(
-            function () {
-                return i <= messages.length - 1;
-            },
-            function (innerCallback) {
-                apiaiClient.sendResponse(sender, messages[i], function () {
-                    setTimeout(function () {
-                        i++;
-                        innerCallback();
-                    }, 1000);
-                })
-            }, callback);
-}			
-
-}
-    
-    else if ((event.message && event.message.text) || (event.postback && event.postback.payload)) {
+    if ((event.message && event.message.text) || (event.postback && event.postback.payload)) {
         var text = event.message ? event.message.text : event.postback.payload;
         // Handle a text message from this sender
 
         if (!sessionIds.has(sender)) {
-            sessionIds.set(sender, uuid.v1());
+            sessionIds.set(sender, uuid.v4());
         }
 
-        //console.log("Text", text);
+        console.log("Text", text);
 
-        //let apiaiRequest = apiAiService.textRequest(text,
-         //   {
-         //       sessionId: sessionIds.get(sender)
-          //  });
-
-        fbClient.userInfoRequest(sender)
-            .then(userInfoStr=> {
-                // Initialize userInto
-		var usernameFb = 'Not Found';
-                var userInfo = {first_name: "friend", devices: "devices"};
-                try {
-                    userInfo = JSON.parse(userInfoStr);
-                    usernameFb = userInfo.first_name + " " + userInfo.last_name;
-		    console.log("user:"+ usernameFb);
-                } catch (err) {
-                    console.error("Could not parse userInfoStr: %s", userInfoStr)
+        let apiaiRequest = apiAiService.textRequest(text,
+            {
+                sessionId: sessionIds.get(sender),
+                originalRequest: {
+                    data: event,
+                    source: "facebook"
                 }
-		console.log ("Device is:" + userInfo.devices + ": Location is" + userInfo.location);
-                var apiaiRequest = apiAiService.textRequest(text,
-                    {
-                        
-			sessionId: sessionIds.get(sender),
-                        contexts: [
-                            {
-                                name: "generic",
-                                parameters: {
-                                    facebook_user: usernameFb,
-                                    facebook_user_id: sender,
-				    devices: userInfo.devices
-			            
-                                }
-                            }
-                        ]
-                    });
-	    
+            });
+
         apiaiRequest.on('response', (response) => {
             if (isDefined(response.result)) {
                 let responseText = response.result.fulfillment.speech;
                 let responseData = response.result.fulfillment.data;
                 let action = response.result.action;
-		console.log("Action:"+action);	
-		console.log("ResponseText:"+responseText);	
-		console.log("ResponseData:"+responseData);	
-				    
+
                 if (isDefined(responseData) && isDefined(responseData.facebook)) {
                     if (!Array.isArray(responseData.facebook)) {
                         try {
                             console.log('Response as formatted message');
-                            // sendFBMessage(sender, responseData.facebook);
+                            sendFBMessage(sender, responseData.facebook);
                         } catch (err) {
-                            // sendFBMessage(sender, {text: err.message});
+                            sendFBMessage(sender, {text: err.message});
                         }
                     } else {
                         async.eachSeries(responseData.facebook, (facebookMessage, callback) => {
                             try {
                                 if (facebookMessage.sender_action) {
                                     console.log('Response as sender action');
-                                   // sendFBSenderAction(sender, facebookMessage.sender_action, callback);
+                                    sendFBSenderAction(sender, facebookMessage.sender_action, callback);
                                 }
                                 else {
                                     console.log('Response as formatted message');
-                                   // sendFBMessage(sender, facebookMessage, callback);
+                                    sendFBMessage(sender, facebookMessage, callback);
                                 }
                             } catch (err) {
-                                // sendFBMessage(sender, {text: err.message}, callback);
+                                sendFBMessage(sender, {text: err.message}, callback);
                             }
                         });
                     }
@@ -141,23 +76,15 @@ if(messages)
                     var splittedText = splitResponse(responseText);
 
                     async.eachSeries(splittedText, (textPart, callback) => {
-		            apiaiClient.handleApiAiResponse(sender, response, callback);
-			    //sendFBMessage(sender, {text: textPart}, callback);
+                        sendFBMessage(sender, {text: textPart}, callback);
                     });
                 }
-else {
-apiaiClient.handleApiAiResponse(sender, response, callback);	
-apiaiRequest.end();	
-}
+
             }
-        		
         });
 
         apiaiRequest.on('error', (error) => console.error(error));
         apiaiRequest.end();
-            }).catch(err => {
-            console.error(err);
-        });  
     }
 }
 
@@ -282,13 +209,12 @@ app.get('/webhook/', (req, res) => {
     } else {
         res.send('Error, wrong validation token');
     }
-req.end();
 });
 
 app.post('/webhook/', (req, res) => {
     try {
         var data = JSONbig.parse(req.body);
-	console.log("Data:"+req.body);    
+
         if (data.entry) {
             let entries = data.entry;
             entries.forEach((entry) => {
@@ -296,8 +222,8 @@ app.post('/webhook/', (req, res) => {
                 if (messaging_events) {
                     messaging_events.forEach((event) => {
                         if (event.message && !event.message.is_echo ||
-                            event.postback && event.postback.payload || event.referral) {
-				processEvent(event);
+                            event.postback && event.postback.payload) {
+                            processEvent(event);
                         }
                     });
                 }
@@ -313,10 +239,9 @@ app.post('/webhook/', (req, res) => {
             error: err
         });
     }
-req.end();
 
 });
-	
+
 app.listen(REST_PORT, () => {
     console.log('Rest service ready on port ' + REST_PORT);
 });
