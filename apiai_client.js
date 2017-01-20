@@ -135,16 +135,10 @@ function sendResponse(sender, message, callback) {
             break;
 		    
 	 case 4: // Himant added quickreply with location
-            if (misc.isDefined(message.replies)) {
-                var questions = [];
-                async.eachSeries(message.replies, (reply, innerCallback) => {
-                    questions.push({text: reply, payload: reply});
-                    innerCallback();
-                });
-		    
+           	    
 		console.log ("questions are:" + questions);
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
-	    }
+	    
             break;
     }
     if (callback) {
