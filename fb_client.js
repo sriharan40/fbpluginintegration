@@ -135,21 +135,17 @@ function sendQuickReplyQuestion(recipientId, question, answers) {
 function  sendQuickReplyLocationQuestion(recipientId)
 {
 	//{"text":"Please share your location:","quick_replies":[{"content_type":"location"}]}}
-	var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        message:
+	var messageData = 
 	{
-		text:"Please share your location:",
-		quick_replies:
-		[
-			{
-			"content_type":"location",
-			}
-		]
-  	}
-    };
+		recipient: {
+		    id: recipientId
+		},
+		message:{
+			text:"Please share your location:",
+			quick_replies:	[{
+				"content_type":"location",
+				}]
+	} };
 
     return callSendAPI(messageData);
 }
