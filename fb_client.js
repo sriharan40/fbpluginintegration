@@ -131,6 +131,32 @@ function sendQuickReplyQuestion(recipientId, question, answers) {
     return callSendAPI(messageData);
 }
 
+// -------- Send location method
+function  sendQuickReplyLocationQuestion(recipientId)
+{
+	//{"text":"Please share your location:","quick_replies":[{"content_type":"location"}]}}
+	var messageData = {
+        recipient: {
+            id: recipientId
+        },
+        message:
+	{
+		text:"Please share your location:",
+		quick_replies:
+		[
+			{
+			"content_type":"location",
+			}
+		]
+  	}
+    };
+
+    return callSendAPI(messageData);
+}
+
+
+// ------------- send locaiton ends
+
 /**
  * Send an image using the Send API.
  *
