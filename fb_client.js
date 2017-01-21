@@ -277,6 +277,7 @@ function callSendAPI(messageData, callback) {
 // Export module functions
 module.exports = {
     sendQuickReplyQuestion: sendQuickReplyQuestion,
+    sendQuickReplyLocationQuestion :sendQuickReplyLocationQuestion,
     subscribeRequest: doSubscribeRequest,
     sendCardMessage: sendCardMessage,
     sendTextMessage: sendTextMessage,
