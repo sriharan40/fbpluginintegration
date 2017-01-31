@@ -134,16 +134,16 @@ function sendResponse(sender, message, callback) {
             }
             break;
 		    
-	 case 4: // Himant added quickreply with location
+	/* case 4: // Himant added quickreply with location
            	    
 		//var messageQ = JSON.parse(message);
 		console.log ("text:" + message.payload.facebook.text);
 		console.log ("QUICK REPLY MESSAGE IS:" + JSON.stringify(message));
 		fbClient.sendQuickReplyLocationQuestion(sender);
 		// {"payload":{"facebook":{"text":"Please share your location:","quick_replies":[{"content_type":"location"}]}},"type":4}
-		    
+		   
 	    
-            break;
+            break;*/
     }
     if (callback) {
         callback();
