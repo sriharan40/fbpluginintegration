@@ -133,7 +133,9 @@ function sendResponse(sender, message, callback) {
                 fbClient.sendImageMessage(sender, message.imageUrl);
             }
             break;
-		    
+	
+	    case 4:
+		    fbClient.callSendAPI(message, callback);
 	/* case 4: // Himant added quickreply with location
            	    
 		//var messageQ = JSON.parse(message);
