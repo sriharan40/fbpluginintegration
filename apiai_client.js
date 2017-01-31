@@ -134,7 +134,7 @@ function sendResponse(sender, message, callback) {
             }
             break;
 	
-	    case 4:
+	   case 4:
 		    fbClient.callSendAPI(message, callback);
 	/* case 4: // Himant added quickreply with location
            	    
@@ -144,8 +144,8 @@ function sendResponse(sender, message, callback) {
 		fbClient.sendQuickReplyLocationQuestion(sender);
 		// {"payload":{"facebook":{"text":"Please share your location:","quick_replies":[{"content_type":"location"}]}},"type":4}
 		   
-	    
-            break;*/
+	    */
+            break;
     }
     if (callback) {
         callback();
